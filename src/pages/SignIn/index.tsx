@@ -9,7 +9,7 @@ export const SignIn = () => {
         <form>
           <input className="input" type="email" placeholder="Email" />
           <input className="input" type="password" placeholder="Password" />
-          <FooterAuth />
+          <FooterAuth linkName={'Register'}/>
         </form>
       </div>
     </div>

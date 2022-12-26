@@ -1,8 +1,14 @@
-export const FooterAuth = () => {
+import { FC } from 'react'
+
+interface IProps {
+  linkName: string
+}
+
+export const FooterAuth: FC<IProps> = ({linkName}: any) => {
   return (
     <footer>
       <div className='links-log-in'>
-        <a>Register</a>
+        <a>{linkName}</a>
       </div>
       <div className='box-button-auth'>
         <button className='button-auth'>Sign In</button>
@@ -10,3 +16,4 @@ export const FooterAuth = () => {
     </footer>
   ) 
 }
+
