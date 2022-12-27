@@ -1,24 +1,24 @@
-import React from 'react'
+import './styles/reset.css'
+import './styles/pages/auth.css'
+import './styles/pages/userAccount.css'
+import './styles/pages/main.css'
+import './styles/pages/city.css'
+
 import { Register } from './pages/Register'
 import { SignIn } from './pages/SignIn'
-import { Layout } from './layout/Layout'
 import { UserAccount } from './pages/UserAccount'
 import { Main } from './pages/Main'
 import { City } from './pages/City'
 
-import './styles/App.css'
-import './styles/reset.css'
-
-
 const App = () => {
   return (
-      <Layout>
-        <City/>
-        {/* <Main/> */}
-        {/* <UserAccount/> */}
-        {/* <Register/> */}
-        {/* <SignIn/> */}
-      </Layout>
+    <>
+      <City />
+      {/* <Main/> */}
+      {/* <UserAccount/> */}
+      {/* <Register/> */}
+      {/* <SignIn/> */}
+    </>
   )
 }
 

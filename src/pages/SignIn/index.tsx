@@ -3,7 +3,7 @@ import { FooterAuth } from '../../components/FooterAuth'
 
 export const SignIn = () => {
   return (
-    <div className="app">
+    <div className="app-auth">
       <div className="log-in-container">
         <h1 className="head">Sign In</h1>
         <form>

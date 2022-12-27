@@ -4,7 +4,7 @@ import { ToggleSwitch } from '../../components/TogglesSwitch'
 
 export const UserAccount = () => {
   return (
-    <>
+    <div className='app-account'>
       <Header />
       <div className="container">
         <div className="greetings-user-box">
@@ -23,6 +23,6 @@ export const UserAccount = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
