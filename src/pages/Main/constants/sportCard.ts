@@ -1,4 +1,1 @@
-export const sportCard = [
-  {title: 'Football'},
-  {title: 'Basketball'}
-]
+export const sportCard = [{ title: 'Football' }, { title: 'Basketball' }]

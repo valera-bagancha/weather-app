@@ -8,10 +8,10 @@ export const Main = () => {
       <Header />
       <div className="container-main-content">
         <div className="box">
-            <MainContentForecast/>
+          <MainContentForecast />
         </div>
         <div className="favorite-box">
-          <Favorite/>
+          <Favorite />
         </div>
       </div>
     </>

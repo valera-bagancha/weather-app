@@ -1,5 +1,5 @@
 export const cities = [
-  {city: 'Kharkiv'},
-  {city: 'Kyiv'},
-  {city: 'London'}
+  { city: 'Kharkiv' },
+  { city: 'Kyiv' },
+  { city: 'London' },
 ]

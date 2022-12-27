@@ -4,11 +4,11 @@ import { CardCities } from '../CardCities'
 import { CardSports } from '../CardSports'
 
 export const Favorite = () => {
-  const CitiesList = cities.map(({city}) => (
+  const CitiesList = cities.map(({ city }) => (
     <CardCities key={city} city={city} />
   ))
 
-  const SportList = sportCard.map(({title}) => (
+  const SportList = sportCard.map(({ title }) => (
     <CardSports key={title} title={title} />
   ))
 

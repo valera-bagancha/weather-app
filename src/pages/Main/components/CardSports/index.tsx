@@ -1,10 +1,10 @@
 import { FC } from 'react'
 
 interface IProps {
-  title: string,
+  title: string
 }
 
-export const CardSports: FC<IProps> = ({title}) => {
+export const CardSports: FC<IProps> = ({ title }) => {
   return (
     <div className="card-cites">
       <div>{title}</div>

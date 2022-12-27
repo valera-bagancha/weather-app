@@ -4,7 +4,7 @@ import { Input } from '../../components/Input'
 import { inputs } from './constants/inputs'
 
 export const Register = () => {
-  const showInputs = inputs.map(({placeholder, className, type}) => (
+  const showInputs = inputs.map(({ placeholder, className, type }) => (
     <Input
       key={placeholder}
       className={className}
@@ -19,7 +19,7 @@ export const Register = () => {
         <h1 className="head">Register</h1>
         <form>
           {showInputs}
-          <FooterAuth linkName={'Sign In'}/>
+          <FooterAuth linkName={'Sign In'} />
         </form>
       </div>
     </div>

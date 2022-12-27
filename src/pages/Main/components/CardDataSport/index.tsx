@@ -1,11 +1,11 @@
-import { FC } from 'react' 
+import { FC } from 'react'
 
 interface IProps {
-  title: string,
+  title: string
   value: string
 }
 
-export const CardDataSport: FC<IProps> = ({title, value}) => {
+export const CardDataSport: FC<IProps> = ({ title, value }) => {
   return (
     <div className="card-event">
       <div className="title-event">{title}:</div>

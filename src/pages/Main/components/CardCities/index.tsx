@@ -4,7 +4,7 @@ interface IProps {
   city: string
 }
 
-export const CardCities: FC<IProps> = ({city}) => {
+export const CardCities: FC<IProps> = ({ city }) => {
   return (
     <div className="card-cites">
       <div>{city}</div>

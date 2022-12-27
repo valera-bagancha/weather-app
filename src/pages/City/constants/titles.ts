@@ -1,0 +1,18 @@
+export const titles = [
+  { title: 'Time' },
+  { title: 'Condition text', className: 'condition' },
+  { title: 'Temperature' },
+  { title: 'Feels Like' },
+  { title: 'Chance of rain' },
+  { title: 'Chance of snow' },
+  { title: 'Precipitation' },
+  { title: 'Pressure' },
+  { title: 'Wind' },
+  { title: 'Humidity' },
+  { title: 'UV index' },
+  { title: 'Gust' },
+  { title: 'Visibility' },
+  { title: 'Heat index' },
+  { title: 'Cloud' },
+  { title: 'Windchill' },
+]

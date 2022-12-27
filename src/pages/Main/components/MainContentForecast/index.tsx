@@ -25,9 +25,9 @@ export const MainContentForecast = () => {
             </div>
           </div>
         </div>
-        <WeatherData/>
+        <WeatherData />
       </div>
-      <FavoriteSports/>
+      <FavoriteSports />
     </>
   )
 }
