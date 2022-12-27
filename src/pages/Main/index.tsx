@@ -4,7 +4,7 @@ import { MainContentForecast } from './components/MainContentForecast'
 
 export const Main = () => {
   return (
-    <>
+    <div className='app-main'>
       <Header />
       <div className="container-main-content">
         <div className="box">
@@ -14,6 +14,6 @@ export const Main = () => {
           <Favorite />
         </div>
       </div>
-    </>
+    </div>
   )
 }

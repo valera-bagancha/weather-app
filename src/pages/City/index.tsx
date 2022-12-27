@@ -5,7 +5,7 @@ import { SwitchDay } from './components/SwitchDay'
 
 export const City = () => {
   return (
-    <>
+    <div className='app-city'>
       <Header />
       <div className="content-container-city-page">
         <div className="title-city">
@@ -24,6 +24,6 @@ export const City = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

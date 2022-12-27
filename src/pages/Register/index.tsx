@@ -14,7 +14,7 @@ export const Register = () => {
   ))
 
   return (
-    <div className="app">
+    <div className="app-auth">
       <div className="log-in-container">
         <h1 className="head">Register</h1>
         <form>

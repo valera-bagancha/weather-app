@@ -1,0 +1,224 @@
+.app-main {
+  min-height: 100vh;
+  background: linear-gradient(45deg, #2980B9, #6DD5FA, white);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.head-main-page {
+  background-color: white;
+}
+
+.container-header-main-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.language-changer {
+  cursor: pointer;
+}
+
+.language-changer::after {
+  content: '▼';
+}
+
+.input-header {
+  position: relative;
+}
+
+.input-header input {
+  outline: 2px solid black;
+  padding: 9px 30px 9px 14px;
+  border-radius: 15px;
+  width: 400px;
+  font-size: 15px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 370px;
+}
+
+.container-main-content {
+  margin: 40px auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  width: 60%;
+}
+
+.forecast {
+  background-color: white;
+  border-radius: 7px;
+}
+
+.forecast-head {
+  padding: 20px 40px;
+}
+
+.forecast-temperature {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.forecast-title {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.temperature-max-min {
+  align-self: start;
+  margin-top: 10px;
+  display: flex;
+}
+
+.max {
+  margin-left: 10px;
+}
+
+.forecast-content {
+  height: 170px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.forecast-content-card {
+  border-bottom: 1px solid rgb(0, 191, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 5px;
+  padding: 5px;
+}
+
+.forecast-content-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.forecast-content-value {
+  font-size: 16px;
+}
+
+.favorite-box {
+  padding: 5px 20px 30px;
+  border-radius: 7px;
+  background-color: white;
+  width: 39%;
+  min-height: 220px;
+  height: 100%;
+}
+
+.title-of-favorites {
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.title-cites {
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.card-cites {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(0, 191, 255);
+  padding: 20px 20px 10px;
+}
+
+.delete-favorite-card {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  background-color: rgb(0, 191, 255);
+  clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+}
+
+.sports {
+  margin-top: 20px;
+}
+
+.sport-event {
+  padding: 30px 10px 10px 10px;
+  background-color: white;
+  border-radius: 7px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.title-kind-sports {
+  margin-left: 30px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.forecast-content {
+  height: 170px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.forecast-content-card {
+  border-bottom: 1px solid rgb(0, 191, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 5px;
+  padding: 5px;
+}
+
+.data-of-event {
+  height: 170px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.card-event {
+  border-bottom: 1px solid rgb(0, 191, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 5px;
+  padding: 5px;
+}
+
+.title-event {
+  font-size: 16px;
+}
+
+.data-title {
+  margin-top: 7px;
+} 
