@@ -3,17 +3,14 @@ import { GeneralData } from './components/GeneralData'
 import { GeneralTemperature } from './components/GeneralTemperature'
 import { SwitchDay } from './components/SwitchDay'
 
-import { useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { TitlesSport } from './components/TitlesSport'
 
 export const City = () => {
-
   const { id } = useParams()
 
-
-  
-
   return (
-    <div className='app-city'>
+    <div className="app-city">
       <Header />
       <div className="content-container-city-page">
         <div className="title-city">
@@ -31,6 +28,7 @@ export const City = () => {
             <GeneralData />
           </div>
         </div>
+        <TitlesSport />
       </div>
     </div>
   )

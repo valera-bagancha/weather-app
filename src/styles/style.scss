@@ -1,0 +1,326 @@
+$themes: (
+  light: (
+    colorHeaderFooter: #fff,
+    colorText: #000,
+    colorBackground: #eee,
+  ),
+  dark: (
+    colorHeaderFooter: #36394c,
+    colorApp: #515571,
+    colorText: #eff2f7,
+    colorTextShadow: #ffffff74,
+    borderDark: 2px solid #ffffff,
+    outlineDark: 0px solid black,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+   }
+}
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+.head-main-page {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.language-changer span {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.app-main {
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
+}
+
+.input-header input {
+  @include themify($themes) {
+    background: themed('colorApp');
+    outline: themed('outlineDark');
+    color: themed('colorText');
+  }
+}
+
+.search-icon {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.forecast {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.favorite-box {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.sport-event {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.forecast-head {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.min {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.forecast-content {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.title-of-favorites {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.title-cites {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.card-cites {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.title-kind-sports {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.data-of-event  {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.app-account {
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
+}
+
+.my-account-head {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.container {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.greetings-user-box  {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.text-dark-mode {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.favorite-cities-box {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.app-auth {
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
+}
+
+.log-in-container {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.head {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.input {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+    border-bottom: themed('borderDark');
+  }
+}
+
+.links-log-in a {
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  }
+}
+
+.button-auth {
+  @include themify($themes) {
+    background: themed('colorApp');
+    border: 0px solid black;
+  }
+}
+
+.app-city {
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
+}
+
+.content-container-city-page {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.title-city {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+} 
+
+.custom-checkbox .glyphicon-star-empty {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.forecast-box {
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
+}
+
+.sport-box {
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
+}
+
+.sport-card-box-city {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.title-box-sport {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.data-box-sport div {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.days {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.main-forecast  {
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  } 
+}
+
+.day-card {
+  @include themify($themes) {
+    background: themed('colorApp');
+    color: themed('colorText');
+  }
+}
+
+.description-card {
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  }
+}
+
+.title-main {
+  @include themify($themes) {
+    background: themed('colorApp');
+    color: themed('colorText');
+  } 
+}
+
+.description-title-main  {
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  }
+}
+
+.data-main {
+  @include themify($themes) {
+    background: themed('colorApp');
+    color: themed('colorText');
+  } 
+}
+
+.vertical-box-titles div {
+  @include themify($themes) {
+    color: themed('colorText');
+  } 
+}
+
+.time {
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  } 
+}
+
+.feels-like {
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  } 
+}

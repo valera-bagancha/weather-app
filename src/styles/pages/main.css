@@ -36,11 +36,13 @@
 }
 
 .language-changer {
-  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.language-changer::after {
-  content: '▼';
+.language-changer span {
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .input-header {
@@ -222,3 +224,7 @@
 .data-title {
   margin-top: 7px;
 } 
+
+.user {
+  display: inline;
+}

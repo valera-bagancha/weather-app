@@ -35,14 +35,6 @@
   cursor: pointer;
 }
 
-.language-changer {
-  cursor: pointer;
-}
-
-.language-changer::after {
-  content: '▼';
-}
-
 .input-header {
   position: relative;
 }
@@ -54,6 +46,12 @@
   width: 400px;
   font-size: 15px;
 }
+
+.language-changer {
+  display: flex;
+  align-items: center;
+}
+
 
 .search-icon {
   position: absolute;
@@ -122,6 +120,40 @@ label input[type="checkbox"] {
   justify-content: space-between;
   background-color: #eee;
   padding: 9px;
+}
+
+.sport-box {
+  border-radius: 7px;
+  background-color: #eee;
+  margin-top: 40px;
+  padding: 4px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sport-card-box-city {
+  padding: 9px;
+  border-radius: 7px;
+  background-color: white;
+  margin: 5px; 
+  width: 32.4%;
+}
+
+.title-box-sport {
+  color: rgb(0, 191, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.data-box-sport div {
+  margin-bottom: 5px;
+}
+
+.data-box-sport div span {
+  font-weight: 700;
 }
 
 .days {
@@ -224,11 +256,15 @@ label input[type="checkbox"] {
   margin-top: 20px;
 }
 
+.vertical-box-titles {
+  padding-top: 7px;
+}
+
 .vertical-box-titles div {
   width: 100px;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.518);
-  margin: 20px 0;
+  margin: 21px 0;
 }
 
 .box-titles-values {

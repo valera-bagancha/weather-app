@@ -1,0 +1,42 @@
+export const cardSport = [
+  {
+    title: 'FootBall',
+    stadium: 'Getafe Cf',
+    country: 'Spain',
+    tournament: 'Spanish La Liga',
+    start: '2022-12-30 17:15',
+    match: 'Getafe vs Real Mallorca',
+  },
+  {
+    title: 'FootBall',
+    stadium: 'Philips Stadion, Eindhoven',
+    country: 'Netherlands',
+    tournament: 'Friendly Match',
+    start: '2022-12-30 17:15',
+    match: 'PSV Eindhoven vs AC Milan',
+  },
+  {
+    title: 'FootBall',
+    stadium: 'Getafe Cf',
+    country: 'Spain',
+    tournament: 'Spanish La Liga',
+    start: '2022-12-30 18:15',
+    match: 'Cadiz vs Almeria',
+  },
+  {
+    title: 'FootBall',
+    stadium: 'Celta Vigo',
+    country: 'Spain',
+    tournament: 'Spanish La Liga',
+    start: '2022-12-30 18:15',
+    match: 'Celta Vigo vs Sevilla',
+  },
+  {
+    title: 'FootBall',
+    stadium: 'Vizela',
+    country: 'Portugal',
+    tournament: 'Portuguese Primeira Liga',
+    start: '2022-12-30 19:00',
+    match: 'Vizela vs Vitoria de Guimaraes',
+  },
+]
