@@ -20,9 +20,9 @@ export const UserAccount = () => {
           <div className="user-name">User name</div>
         </div>
         <hr className="line" />
-          <ToggleSwitch onChange={func} />
+          <ToggleSwitch onChange={func} checked={isDarkMode}/>
         <div className="text-dark-mode">Dark/Light mode</div>
-        <ToggleSwitch onChange={() => {}}/>
+        <ToggleSwitch onChange={() => {}} checked={isDarkMode}/>
         <div className="text-dark-mode">Metric/Imperial system</div>
         <div className="favorite-cities-box">
           <div className="favorite-cities-head">List of favorite cities:</div>

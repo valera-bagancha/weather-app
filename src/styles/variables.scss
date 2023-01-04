@@ -1,0 +1,17 @@
+$themes: (
+  light: (
+    colorHeaderFooter: #fff,
+    colorText: #000,
+    colorBackground: #eee,
+  ),
+  dark: (
+    colorHeaderFooter: #36394c,
+    colorApp: #515571,
+    colorText: #eff2f7,
+    colorTextShadow: #ffffff74,
+    borderDark: 2px solid #ffffff,
+    outlineDark: 0px solid black,
+    borderDarkButton: 0px solid black,
+    errorAuthDark: rgb(239, 239, 239)
+  ),
+);

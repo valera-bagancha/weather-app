@@ -33,6 +33,7 @@
 
 .exit-account {
   cursor: pointer;
+  color: black;
 }
 
 .exit-account:hover {

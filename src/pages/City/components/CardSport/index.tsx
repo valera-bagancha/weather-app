@@ -20,6 +20,11 @@ export const CardSport: FC<IProps> = ({
   return (
     <div className="sport-card-box-city">
       <div className="title-box-sport">{title}</div>
+      <label className="custom-checkbox-sport">
+        <input className="input" type="checkbox" id="id-of-input" />
+        <i className="glyphicon glyphicon-star-empty"></i>
+        <i className="glyphicon glyphicon-star"></i>
+      </label>
       <div className="data-box-sport">
         <div className="stadium">
           <span>Stadium:</span> {stadium}

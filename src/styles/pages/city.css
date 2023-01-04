@@ -83,6 +83,10 @@
   font-weight: 700;
 }
 
+.custom-checkbox-sport{
+  font-size: 35px;
+}
+
 label {
   font-size: 35px;
 }
@@ -102,7 +106,7 @@ label input[type="checkbox"] {
 }
 
 .custom-checkbox .glyphicon-star-empty {
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .custom-checkbox .glyphicon-star {
@@ -113,6 +117,40 @@ label input[type="checkbox"] {
 .custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
   opacity: 1;
 }
+
+/* asdjhgkjl */
+.custom-checkbox-sport {
+  font-size: 20px;
+}
+
+.custom-checkbox-sport input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox-sport {
+  cursor: pointer;
+}
+
+.custom-checkbox-sport .glyphicon {
+  color: gold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.custom-checkbox-sport .glyphicon-star-empty {
+  color: rgb(0, 0, 0);
+}
+
+.custom-checkbox-sport .glyphicon-star {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.custom-checkbox-sport input[type="checkbox"]:checked ~ .glyphicon-star {
+  opacity: 1;
+}
+/* adsfads */
 
 .forecast-box {
   border-radius: 7px;
@@ -132,6 +170,7 @@ label input[type="checkbox"] {
 }
 
 .sport-card-box-city {
+  position: relative;
   padding: 9px;
   border-radius: 7px;
   background-color: white;

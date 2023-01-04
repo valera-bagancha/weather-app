@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { ROUTES } from '../../constants/routes'
 import { useState } from 'react'
 
@@ -17,10 +17,12 @@ export const Header = () => {
     <header className="head-main-page">
       <div className="container-header-main-page">
         <div className="logo">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/1214/1214753.png"
-            alt="...loading"
-          />
+          <Link to={ROUTES.MAIN}>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1214/1214753.png"
+              alt="...loading"
+            />
+          </Link>
         </div>
         <form>
           <div className="input-header">
@@ -39,7 +41,9 @@ export const Header = () => {
           <span>UA</span>
           <span>EN</span>
           <div className='user'>
-            <span className="material-symbols-outlined">person</span>
+            <Link to={ROUTES.USER_ACCOUNT}>
+              <span className="material-symbols-outlined">person</span>
+            </Link>
           </div>
         </div>
       </div>

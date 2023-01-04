@@ -1,3 +1,6 @@
+@import '../mixins.scss';
+@import '../functions.scss';
+
 *{
   font-family: sans-serif ;
 }
@@ -62,7 +65,12 @@
   padding: 10px 70px;
   border-radius: 5px;
   font-size: 16px;
-  color: white;
+  color: white;  
+
+  @include themify($themes) {
+    background: themed('colorApp');
+    border: themed('borderDarkButton');
+  }
 }
 
 .button-auth:hover {
@@ -70,4 +78,9 @@
   border: 1px solid #2d2d2d;
   background-color: white;
   transition: all 0.2s ease;
+}
+
+.auth-error {
+  color: red;
+  margin-top: 5px;
 }

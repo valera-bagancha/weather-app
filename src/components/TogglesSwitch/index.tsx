@@ -1,13 +1,14 @@
 import { FC } from 'react'
 interface IProps {
-  onChange: () => void
+  onChange: () => void;
+  checked: boolean;
 }
 
-export const ToggleSwitch: FC<IProps> = ({onChange}) => {
+export const ToggleSwitch: FC<IProps> = ({onChange, checked}) => {
   return (
     <div className="toggle-switch">
       <label className="mode-system">
-        <input className="input-switch" type="checkbox" onChange={onChange}/>
+        <input className="input-switch" type="checkbox" onChange={onChange} checked={checked}/>
         <span className="slider-system"/>
       </label>
     </div>

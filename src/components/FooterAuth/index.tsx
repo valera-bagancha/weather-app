@@ -1,17 +1,22 @@
 import { FC } from 'react'
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
 
 interface IProps {
-  linkName: string
+  linkName: string;
+  linkRoute: string
 }
 
-export const FooterAuth: FC<IProps> = ({linkName}: any) => {
+export const FooterAuth: FC<IProps> = ({linkName, linkRoute}) => {
   return (
     <footer>
       <div className='links-log-in'>
-        <a>{linkName}</a>
+        <Link to={linkRoute}>
+          <a>{linkName}</a>
+        </Link>
       </div>
       <div className='box-button-auth'>
-        <button className='button-auth'>Sign In</button>
+        <button type='submit' className='button-auth'>Sign In</button>
       </div>
     </footer>
   ) 

@@ -1,13 +1,14 @@
 import { RouterProvider } from 'react-router-dom';
-import { createContext, useContext, useState } from 'react'
+import { createContext, useState } from 'react'
 import { router } from './routes'
 
 import './styles/reset.css'
-import './styles/pages/auth.css'
 import './styles/pages/userAccount.css'
 import './styles/pages/main.css'
 import './styles/pages/city.css'
-import './styles/style.scss'
+import './styles/main.scss'
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 
 export const ThemeContext = createContext({
@@ -26,11 +27,13 @@ export const App = () => {
   
 
   return (
-    <ThemeContext.Provider value={{isDarkMode, setIsDarkMode: func}}>
-      <div className={`theme-${isDarkMode ? 'dark': 'light'}`}>
-      <RouterProvider router={router} />
-      </div>
-    </ThemeContext.Provider>
+    <Provider store={store}>
+      <ThemeContext.Provider value={{isDarkMode, setIsDarkMode: func}}>
+        <div className={`theme-${isDarkMode ? 'dark': 'light'}`}>
+        <RouterProvider router={router} />
+        </div>
+      </ThemeContext.Provider>
+    </Provider>
   )
 }
 

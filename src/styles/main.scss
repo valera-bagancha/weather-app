@@ -1,40 +1,8 @@
-$themes: (
-  light: (
-    colorHeaderFooter: #fff,
-    colorText: #000,
-    colorBackground: #eee,
-  ),
-  dark: (
-    colorHeaderFooter: #36394c,
-    colorApp: #515571,
-    colorText: #eff2f7,
-    colorTextShadow: #ffffff74,
-    borderDark: 2px solid #ffffff,
-    outlineDark: 0px solid black,
-  ),
-);
+@import './variables.scss';
+@import './mixins.scss';
+@import './functions.scss';
 
-@mixin themify($themes) {
-  @each $theme, $map in $themes {
-    .theme-#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), '#{$key}');
-        $theme-map: map-merge(
-          $theme-map,
-            (
-              $key: $value,
-            )
-          ) !global;
-        }
-        @content;
-        $theme-map: null !global;
-      }
-   }
-}
-@function themed($key) {
-  @return map-get($theme-map, $key);
-}
+@import './pages/auth.scss';
 
 .head-main-page {
   @include themify($themes) {
@@ -192,6 +160,19 @@ $themes: (
   @include themify($themes) {
     background: themed('colorHeaderFooter');
     border-bottom: themed('borderDark');
+    color: themed('colorText');
+  }
+}
+
+.exit-account {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.error-auth {
+ @include themify($themes) {
+    color: themed('errorAuthDark');
   }
 }
 
@@ -201,12 +182,6 @@ $themes: (
   }
 }
 
-.button-auth {
-  @include themify($themes) {
-    background: themed('colorApp');
-    border: 0px solid black;
-  }
-}
 
 .app-city {
   @include themify($themes) {
@@ -227,6 +202,12 @@ $themes: (
 } 
 
 .custom-checkbox .glyphicon-star-empty {
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.custom-checkbox-sport .glyphicon-star-empty {
   @include themify($themes) {
     color: themed('colorText');
   }
