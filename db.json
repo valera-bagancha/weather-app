@@ -1,3 +1,86 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$ZZwSXOD4qqoXs4gdhvYTleyA2okr7AH7NXf8RjEWeiSJSNLdiPM.C",
+      "id": 1
+    },
+    {
+      "email": "olivifer@mail.com",
+      "password": "$2a$10$X/aOTBW8iXWZ.lmdGDrDh.yYS6gp6vvxJ/Hqc3rKLazgXNgqaUOPq",
+      "firstName": "fdsfsdf",
+      "id": 2
+    },
+    {
+      "email": "asdgasdgas@gami.com",
+      "password": "$2a$10$yg/Lb2wnYHryw5..4EXWauPnADztqpazP6Ih6rsHU.aeHMGD99XFS",
+      "phoneNumber": "1241235",
+      "firstName": "dgadfhfcv",
+      "lastName": "hcvjbvhg",
+      "confirmPassword": "11111111111",
+      "id": 3
+    },
+    {
+      "email": "dfvgbhnjmk@gam.com",
+      "password": "$2a$10$Af1GvAcTdOYpRQ2zIjaEc.6NK/eH.bIajK5YmOdZBfE8agTpqov.a",
+      "phoneNumber": "576849782",
+      "firstName": "sdgvgnvhj",
+      "lastName": "ghdgsf",
+      "confirmPassword": "11111",
+      "id": 4
+    },
+    {
+      "email": "adsgas@gamil.com",
+      "password": "$2a$10$4VYjd8QAHWnlzeGrErm9wu2kH6J4TvHsEyuTdAJpaRlL4IPg44pnO",
+      "phoneNumber": "321412351",
+      "firstName": "1asdhsa",
+      "lastName": "asdgasdf",
+      "id": 5
+    },
+    {
+      "email": "adg@gmai.com",
+      "password": "$2a$10$qHQInnwAf9fJ6IHmcYB2KeFV8NtR8ihH1UAbfOCuawTNfwyLeEAPW",
+      "phoneNumber": "2141235",
+      "firstName": "asdgasdg",
+      "lastName": "adshad",
+      "id": 6
+    },
+    {
+      "email": "valerabagancha@gmai.com",
+      "password": "$2a$10$9LFrJIEEs5igVuwNl4BKPOGEEApqSP3HnHWk8D.40BbD3SPurwqhG",
+      "id": 7
+    },
+    {
+      "email": "va@gmail.com",
+      "password": "$2a$10$8Kr5sTcuY6/vi51jJYPmDOffd80yyl7jVRUSGftkakNeoexG2k/Ry",
+      "phoneNumber": "12461235234",
+      "firstName": "ghdjlgkas",
+      "lastName": "asdhsd",
+      "id": 8
+    },
+    {
+      "email": "max@gmail.com",
+      "password": "$2a$10$xr/rYvZgd3bVMeHRMRP7Hei7GDHIrkQikVpfNCHebknjJ23Rw/XNO",
+      "phoneNumber": "123456789",
+      "firstName": "Max",
+      "lastName": "Strilets",
+      "id": 9
+    },
+    {
+      "email": "mrex@gmail.com",
+      "password": "$2a$10$eKnJVHLCSmBea4FMmchnEOgvS/uDtqCx01WS6CO6jf9oWDUn4M6oO",
+      "phoneNumber": "123456789",
+      "firstName": "Max",
+      "lastName": "Strilets",
+      "id": 10
+    },
+    {
+      "email": "a@gmail.com",
+      "password": "$2a$10$zC/X/FqmSG1PKrx9FftC1uHRZlNsiye9K/hsGAdpjZBBNMADMarpS",
+      "phoneNumber": "351326123",
+      "firstName": "dgadsfhads",
+      "lastName": "fasdgasdfa",
+      "id": 11
+    }
+  ]
 }

@@ -8,7 +8,7 @@ export const registerValidationSchema = Yup.object().shape({
   [email.id]: Yup.string().email('Invalid email').required('Required'),
   [phoneNumber.id]: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
   [password.id]: Yup.string()
-    .min(2, 'Too Short!')
+    .min(5, 'Too Short!')
     .max(30, 'Too Long!')
     .required('Required'),
   [confirmPassword.id]: Yup.string().oneOf(

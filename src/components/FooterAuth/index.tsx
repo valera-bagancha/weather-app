@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
 
@@ -7,15 +8,16 @@ interface IProps {
   linkRoute: string
 }
 
+
 export const FooterAuth: FC<IProps> = ({linkName, linkRoute}) => {
   return (
     <footer>
       <div className='links-log-in'>
         <Link to={linkRoute}>
-          <a>{linkName}</a>
+          {linkName}
         </Link>
       </div>
-      <div className='box-button-auth'>
+      <div className='box-button-auth'> 
         <button type='submit' className='button-auth'>Sign In</button>
       </div>
     </footer>

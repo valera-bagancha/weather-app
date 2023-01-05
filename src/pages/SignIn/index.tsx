@@ -6,9 +6,12 @@ import { signInValidationSchema } from '../../utils/auth/signInValidationSchema'
 import { ROUTES } from '../../constants/routes'
 import { getInputsList } from '../../utils/auth/UI/getInputsList'
 import { inputs } from './constants/inputs'
+import { useDispatch } from 'react-redux'
+import { logInUserAsync } from '../../redux/auth/actions'
 
 export const SignIn = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const initialValues = {
     email: '',
@@ -22,13 +25,14 @@ export const SignIn = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={signInValidationSchema}
-          onSubmit={() => {
+          onSubmit={ values => {
+            dispatch(logInUserAsync(values))
             navigate(ROUTES.MAIN)
           }}
         >
-          {({ errors, touched }: any) => (
+          {({ errors, touched, values, handleChange }: any) => (
             <Form>
-              {getInputsList(inputs, errors, touched)}
+              {getInputsList(inputs, values, errors, touched, handleChange)}
               <FooterAuth linkName={'Register'} linkRoute={ROUTES.REGISTER} />
             </Form>
           )}
