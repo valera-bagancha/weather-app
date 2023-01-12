@@ -1,27 +1,33 @@
 import { useNavigate } from 'react-router-dom'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form } from 'formik'
+import { useDispatch } from 'react-redux'
+import { useContext } from 'react'
 
 import { FooterAuth } from '../../components/FooterAuth'
-import { ROUTES } from '../../constants/routes'
+import { ROUTES } from '../../constants/routes/routes'
 import { registerValidationSchema } from '../../utils/auth/registerValidationSchema'
 import { getInputsList } from '../../utils/auth/UI/getInputsList'
-import { confirmPassword, inputs } from './constants/inputs'
-import { useDispatch } from 'react-redux'
+import { inputs } from './constants/inputs'
 import { registerUserAsync } from '../../redux/auth/actions'
-import { IUserRegister } from '../../redux/auth/types'
+// import { IUserRegister } from '../../redux/auth/types'
 import { removeObjectField } from '../../utils/removeObjectField'
+import { MessageModalContext } from '../../context/messageModalContext'
+import { generateInitialValues } from '../../utils/generateInitialFormikValues'
 
 export const Register = () => {
+  const openModal = useContext(MessageModalContext)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const initialValues: IUserRegister = {
-    email: '',
-    phoneNumber: '',
-    firstName: '',
-    lastName: '',
-    password: '',
-    confirmPassword: '',
+  const onSubmit = async (values: any) => {
+    try {
+      await dispatch(
+        registerUserAsync(removeObjectField(values, 'confirmPassword'))
+      )
+      navigate(ROUTES.MAIN)
+    } catch (error: any) {
+      openModal(error.message, true)
+    }
   }
 
   return (
@@ -29,30 +35,11 @@ export const Register = () => {
       <div className="log-in-container">
         <h1 className="head">Register</h1>
         <Formik
-          initialValues={initialValues}
+          initialValues={generateInitialValues(inputs)}
           validationSchema={registerValidationSchema}
-          onSubmit={async (values) => {
-            try {
-              console.log('before dispatch');
-              
-              await dispatch(registerUserAsync(removeObjectField(values, 'confirmPassword')))
-
-
-             
-              console.log('after dispatch');
-              
-
-              navigate(ROUTES.MAIN)
-            } catch (error) {
-              console.log();
-              
-              alert(error)
-            }
-            // dispatch(registerUserAsync(removeObjectField(values, 'confirmPassword')))
-            // navigate(ROUTES.MAIN)
-          }}
+          onSubmit={onSubmit}
         >
-          {({ errors, touched, values, handleChange }: any) => (
+          {({ errors, touched, values, handleChange }) => (
             <Form>
               {getInputsList(inputs, values, errors, touched, handleChange)}
               <FooterAuth linkName={'Sign In'} linkRoute={ROUTES.SIGNIN} />

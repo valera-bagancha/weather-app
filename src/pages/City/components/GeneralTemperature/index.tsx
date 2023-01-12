@@ -1,22 +1,34 @@
-export const GeneralTemperature = () => {
+import { useTranslation } from 'react-i18next'
+
+export const GeneralTemperature = ({location, currentDayData }: any) => {
+  const arr = currentDayData?.hour
+ 
+  const temp = arr?.reduce((sum: any, i: any) => sum + i.temp_c, 0) / (currentDayData?.hour?.length)
+  const tempFeelsLike = arr?.reduce((sum: any, i: any) => sum + i.feelslike_c, 0) / (currentDayData?.hour?.length)
+
+  const currentGeneralTemp = Math.round(temp)
+  const currentGeneralTempFeelsLike = Math.round(tempFeelsLike)
+  
+  const { t } = useTranslation()
+
   return (
     <div className="title-main">
       <div className="text-title-main">
-        Weather Kharkiv, December 26, Monday
+        {t('city.weather')} {location?.name}, <br/>{currentDayData?.date}
       </div>
-      <div className="description-title-main">Forecast for the next hour</div>
+      <div className="description-title-main">{t('city.nextHourWeather')}</div>
       <div className="temperature-icon-title-main">
-        <div className="temperature-title-main">+1</div>
+        <div className="temperature-title-main">{`${currentGeneralTemp}`}</div>
         <div className="box">
           <img
             className="icon-title-main"
-            src="//cdn.weatherapi.com/weather/64x64/night/113.png"
-            alt=""
+            src={currentDayData?.day?.condition?.icon}
+            alt="Oops"
           />
         </div>
       </div>
       <div className="feels-title-main">
-        Feels like 0<sup>&#186;</sup>
+        {t('city.feelsLike')} {`${currentGeneralTempFeelsLike}`}<sup>&#186;</sup>
       </div>
     </div>
   )

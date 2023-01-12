@@ -1,20 +1,33 @@
-import { useNavigate, Link } from 'react-router-dom'
-import { ROUTES } from '../../constants/routes'
+import cn from 'classnames'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../../constants/routes/routes'
+import { useTranslation } from 'react-i18next'
 
 export const Header = () => {
-  const [value, setValue] = useState('')
+  // const [language, setLanguage] = useState('english')
+  const {i18n} = useTranslation()
 
-  const navigate = useNavigate()
-
-  const func = (e: any) => {
-    if (e.code === 'Enter') {
-      navigate(`${ROUTES.CITY}/${value}`)
-    }
+  const activeClassUa = () => {
+    // setLanguage('ukrainian')
+    i18n.changeLanguage('ua')
   }
 
+  const activeClassUs = () => {
+    // setLanguage('english')
+    i18n.changeLanguage('en')
+  }
+
+  // const focusUs = cn({
+  //   ['focus-language']: language === 'english',
+  // })
+
+  // const focusUa = cn({
+  //   ['focus-language']: language === 'ukrainian',
+  // })
+
   return (
-    <header className="head-main-page">
+    <header className="header">
       <div className="container-header-main-page">
         <div className="logo">
           <Link to={ROUTES.MAIN}>
@@ -24,23 +37,10 @@ export const Header = () => {
             />
           </Link>
         </div>
-        <form>
-          <div className="input-header">
-            <input
-              placeholder="Search City"
-              value={value}
-              onChange={e => setValue(e.target.value)}
-              onKeyDown={func}
-            />
-            <span className="material-symbols-outlined search-icon">
-              search
-            </span>
-          </div>
-        </form>
         <div className="language-changer">
-          <span>UA</span>
-          <span>EN</span>
-          <div className='user'>
+          <span onClick={activeClassUa}>UA</span>
+          <span onClick={activeClassUs}>EN</span>
+          <div className="user">
             <Link to={ROUTES.USER_ACCOUNT}>
               <span className="material-symbols-outlined">person</span>
             </Link>

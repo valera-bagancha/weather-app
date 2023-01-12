@@ -1,0 +1,38 @@
+{ 
+  "inputPlaceholder": "Search city",
+  "forecastMain": {
+    "mainForecastDataWind": "Wind",
+    "mainForecastDataHumidity": "Humidity",
+    "mainForecastDataPressure": "Pressure",
+    "mainForecastDataCloud": "Cloud",
+    "mainForecastDataUvIndex": "UV index"
+  },
+  "favoriteMain": {
+    "titleFavorites": "Favorites city/sports events",
+    "favoritesCity": "Favorite cities:",
+    "favoritesSportEvent": "Sports events:"
+  },
+  "sportEvent": {
+    "mainSportEventTitle": "Football",
+    "mainSportEventDataMatch": "Match",
+    "mainSportEventDataStart": "Start",
+    "mainSportEventDataStadium": "Stadium",
+    "mainSportEventDataTournament": "Tournament",
+    "mainSportEventDataCountry": "Country"
+  },
+  "account": {
+    "myAccountLogo": "MY ACCOUNT",
+    "exitAccount": "Sign out",
+    "greetingsUser": "Hi",
+    "changerTheme": "Dark/Light mode",
+    "changerSystem": "Metric/Imperial system",
+    "favoriteCities": "List of favorite cities:"
+  },
+  "city": {
+    "weatherIn": "Weather in",
+    "weather": "Weather",
+    "nextHourWeather": "Average forecast for the day",
+    "feelsLike": "Feels like"
+
+  }
+}

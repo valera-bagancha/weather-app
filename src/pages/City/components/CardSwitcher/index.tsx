@@ -1,22 +1,33 @@
+
+import cn from 'classnames'
 import { FC } from 'react'
 
-interface IProps {
-  theDay: string
-  theDate: string
-  srcImage: string
-  maxTemperature: string
-  minTemperature: string
-}
+// interface IProps {
+//   theDay: string
+//   theDate: string
+//   srcImage: string
+//   maxTemperature: string
+//   minTemperature: string
+// }
 
-export const CardSwitcher: FC<IProps> = ({
+export const CardSwitcher = ({
+  date_epoch,
+  currentDay,
   theDay,
   theDate,
   srcImage,
   maxTemperature,
   minTemperature,
-}) => {
+  changeCurrentDay,
+}: any) => {
   return (
-    <div className="day-card bg-color">
+    <div
+      className={cn('day-card', {
+        ['bg-color ']: currentDay === date_epoch,
+        ['bg-color-dark']: currentDay === date_epoch,
+      })}
+      onClick={() => changeCurrentDay(date_epoch)}
+    >
       <div className="title-card">{theDay}</div>
       <div className="description-card">{theDate}</div>
       <div className="visual-card">
@@ -24,8 +35,8 @@ export const CardSwitcher: FC<IProps> = ({
           <img src={srcImage} alt="" />
         </div>
         <div className="temperature-card">
-          <div className="max">{maxTemperature}</div>
-          <div className="min">{minTemperature}</div>
+          <div className="max-city">{maxTemperature}</div>
+          <div className="min-city">{minTemperature}</div>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 export const cardSport = [
   {
-    title: 'FootBall',
+    title: 'Football',
     stadium: 'Getafe Cf',
     country: 'Spain',
     tournament: 'Spanish La Liga',
@@ -8,7 +8,7 @@ export const cardSport = [
     match: 'Getafe vs Real Mallorca',
   },
   {
-    title: 'FootBall',
+    title: 'Football',
     stadium: 'Philips Stadion, Eindhoven',
     country: 'Netherlands',
     tournament: 'Friendly Match',

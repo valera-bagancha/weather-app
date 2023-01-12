@@ -1,8 +1,17 @@
+@import '../mixins.scss';
+@import '../functions.scss';
+
 .app-main {
-  min-height: 100vh;
+  flex-grow: 1;
+  height: 100%;
+  padding: 0 0 20px 0;
   background: linear-gradient(45deg, #2980B9, #6DD5FA, white);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
+
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
 }
 
 @keyframes gradient {
@@ -17,54 +26,8 @@
   }
 }
 
-.head-main-page {
-  background-color: white;
-}
-
-.container-header-main-page {
-  margin: 0 auto;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo img {
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-}
-
-.language-changer {
-  display: flex;
-  align-items: center;
-}
-
-.language-changer span {
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.input-header {
-  position: relative;
-}
-
-.input-header input {
-  outline: 2px solid black;
-  padding: 9px 30px 9px 14px;
-  border-radius: 15px;
-  width: 400px;
-  font-size: 15px;
-}
-
-.search-icon {
-  position: absolute;
-  top: 6px;
-  left: 370px;
-}
-
 .container-main-content {
-  margin: 40px auto;
+  margin: 0 auto;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
@@ -77,10 +40,18 @@
 .forecast {
   background-color: white;
   border-radius: 7px;
+  
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
 }
 
 .forecast-head {
   padding: 20px 40px;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .forecast-temperature {
@@ -109,15 +80,27 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .forecast-content-card {
   border-bottom: 1px solid rgb(0, 191, 255);
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 5px 5px;
   padding: 5px;
+  font-size: 16px;
+  span {
+    align-self: center;
+  }
+}
+
+.icon-title {
+  display: flex;
+  align-items: center;
 }
 
 .forecast-content-title {
@@ -137,17 +120,29 @@
   width: 39%;
   min-height: 220px;
   height: 100%;
+
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
 }
 
 .title-of-favorites {
   font-size: 20px;
   text-align: center;
   padding: 10px;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .title-cites {
   font-size: 16px;
   text-decoration: underline;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .card-cites {
@@ -155,6 +150,10 @@
   justify-content: space-between;
   border-bottom: 1px solid rgb(0, 191, 255);
   padding: 20px 20px 10px;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .delete-favorite-card {
@@ -175,12 +174,20 @@
   border-radius: 7px;
   margin-top: 10px;
   width: 100%;
+
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
 }
 
 .title-kind-sports {
   margin-left: 30px;
   font-size: 30px;
   font-weight: 600;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .forecast-content {
@@ -206,19 +213,26 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .card-event {
-  border-bottom: 1px solid rgb(0, 191, 255);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  margin: 5px 5px;
-  padding: 5px;
 }
 
 .title-event {
+  display: flex;
+  justify-content: space-between;
+  width: 49%;
+  border-bottom: 1px solid rgb(0, 191, 255);
   font-size: 16px;
+  padding: 10px;
+
 }
 
 .data-title {
@@ -227,4 +241,11 @@
 
 .user {
   display: inline;
+}
+
+.input-main {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 10px 0;
 }

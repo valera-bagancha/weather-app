@@ -1,18 +1,24 @@
 import { Action, ActionTypes } from './types';
 
-export const authReducer = (state: any = {}, { type, payload }: Action) => {
+
+const initialState = {
+  accessToken: null,
+  user: null,
+}
+
+
+export const authReducer = (state: any = initialState, { type, payload }: Action) => {
+  console.log('state', state);
+  
   switch (type) {
-    case ActionTypes.REGISTER_USER:
+    case ActionTypes.SET_AUTH_DATA:
+      return payload;
+
+    case ActionTypes.SET_USER:
       return {
         ...state, 
         
       }
-      case ActionTypes.LOGIN_USER:
-        return {
-          ...state, 
-          
-        }
-
     default:
        return state
   }

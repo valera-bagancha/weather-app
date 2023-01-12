@@ -2,6 +2,7 @@ import { cities } from '../../constants/cardCities'
 import { sportCard } from '../../constants/sportCard'
 import { CardCities } from '../CardCities'
 import { CardSports } from '../CardSports'
+import { useTranslation } from 'react-i18next'
 
 export const Favorite = () => {
   const CitiesList = cities.map(({ city }) => (
@@ -12,13 +13,15 @@ export const Favorite = () => {
     <CardSports key={title} title={title} />
   ))
 
+  const { t } = useTranslation()
+
   return (
     <>
-      <div className="title-of-favorites">Favorites city/sports events</div>
-      <div className="title-cites">Favorites cites:</div>
+      <div className="title-of-favorites">{t('favoriteMain.titleFavorites')}</div>
+      <div className="title-cites">{t('favoriteMain.favoritesCity')}</div>
       {CitiesList}
       <div className="sports">
-        <div className="title-cites">Sports events:</div>
+        <div className="title-cites">{t('favoriteMain.favoritesSportEvent')}</div>
         {SportList}
       </div>
     </>

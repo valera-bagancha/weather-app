@@ -1,0 +1,33 @@
+.modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-125px, -100px);
+  background-color: white;
+  border-radius: 7px; 
+  width: 250px;
+  min-height: 200px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+    div {
+      font-size: 20px;
+    } 
+}
+
+.error-message {
+  border: 2px solid rgb(196, 1, 1);
+}
+
+.button-modal {
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 10px 30px;
+  background-color: white;
+}
+
+// .modal-box div {
+//   font-size: 20px;
+// }

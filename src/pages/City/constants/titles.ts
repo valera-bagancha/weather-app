@@ -9,7 +9,6 @@ export const titles = [
   { title: 'Pressure' },
   { title: 'Wind' },
   { title: 'Humidity' },
-  { title: 'UV index' },
   { title: 'Gust' },
   { title: 'Visibility' },
   { title: 'Heat index' },

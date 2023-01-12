@@ -1,65 +1,38 @@
-import { FC } from 'react'
+export const CardTitleValue = ({ newData }: any) => {
+    const {
+      time, condition,
+      temp_c, feelslike_c,
+      chance_of_rain, chance_of_snow,
+      precip_mm, wind_mph,
+      pressure_mb, humidity,
+      gust_mph, vis_km, heatindex_c,
+      cloud, windchill_c
+    } = newData
 
-interface IProps {
-  time: string
-  srcIcon: string
-  temperature: string
-  feelsLike: string
-  chanceOfRain: string
-  chanceOfSnow: string
-  precipi: string
-  pressure: string
-  cloud: string
-  wind: string
-  humidity: string
-  uvIndex: string
-  gust: string
-  vis: string
-  heatIndex: string
-  windchill: string
-}
+    const currentTime = time.slice(-5)
 
-export const CardTitleValue: FC<IProps> = ({
-  time,
-  srcIcon,
-  temperature,
-  feelsLike,
-  chanceOfRain,
-  chanceOfSnow,
-  precipi,
-  pressure,
-  cloud,
-  wind,
-  humidity,
-  uvIndex,
-  gust,
-  vis,
-  heatIndex,
-  windchill,
-}) => {
-  return (
-    <div className="card-values-forecast">
-      <div className="time">{time}</div>
-      <div className="icon">
-        <img src={srcIcon} alt="" />
+    return (
+      <div className="card-values-forecast">
+        <div className="time">{currentTime}</div>
+        <div className="icon">
+          <img src={condition.icon} alt="" />
+        </div>
+        <div className="temperature">{temp_c}</div>
+        <div className="feels-like">{feelslike_c}</div>
+        <div>{chance_of_rain}</div>
+        <div>{chance_of_snow}</div>
+        <div>{precip_mm}</div>
+        <div className="pressure">{pressure_mb}</div>
+        <div className="wind">{wind_mph}</div>
+        <div className="humidity">
+          {humidity}
+          <span>%</span>
+        </div>
+        <div className="gust">{gust_mph}</div>
+        <div className="vis">{vis_km}</div>
+        <div className="heat-index">{heatindex_c}</div>
+        <div className="cloud">{cloud}</div>
+        <div className="windchill">{windchill_c}</div>
       </div>
-      <div className="temperature">{temperature}</div>
-      <div className="feels-like">{feelsLike}</div>
-      <div className="chance-of-rain">{chanceOfRain}</div>
-      <div className="chance-of-snow">{chanceOfSnow}</div>
-      <div className="precipi">{precipi}</div>
-      <div className="pressure">{pressure}</div>
-      <div className="wind">{wind}</div>
-      <div className="humidity">
-        {humidity}
-        <span>%</span>
-      </div>
-      <div className="uv-index">{uvIndex}</div>
-      <div className="gust">{gust}</div>
-      <div className="vis">{vis}</div>
-      <div className="heat-index">{heatIndex}</div>
-      <div className="cloud">{cloud}</div>
-      <div className="windchill">{windchill}</div>
-    </div>
-  )
-}
+    )
+  }

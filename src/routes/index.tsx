@@ -1,36 +1,25 @@
-import { createBrowserRouter, redirect } from 'react-router-dom'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { FC, useEffect } from 'react'
 
-import { Register } from '../pages/Register'
+import { routesDescription } from './routesDescription'
+import { useCheckUserAuth } from '../hooks/useCheckUserAuth'
+import { ROUTES } from '../constants/routes/routes'
 
-import { ROUTES } from '../constants/routes'
-import { SignIn } from '../pages/SignIn'
-import { Main } from '../pages/Main';
-import { City } from '../pages/City';
-import { UserAccount } from '../pages/UserAccount';
+export const Router: FC = () => {
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
 
-export const router = createBrowserRouter([
-  {
-    path: ROUTES.DEFAULT,
-    loader: () => redirect(ROUTES.REGISTER)
-  },
-  {
-    path: ROUTES.REGISTER,
-    element: <Register />,
-  },
-  {
-    path: ROUTES.SIGNIN,
-    element: <SignIn />,
-  },
-  {
-    path: ROUTES.MAIN,
-    element: <Main />,
-  },
-  {
-    path: `${ROUTES.CITY}/:id`,
-    element: <City />,
-  },
-  {
-    path: ROUTES.USER_ACCOUNT,
-    element: <UserAccount />,
-  },
-]);
+  const RouteList = routesDescription.map(({ path, element }) => (
+    <Route key={path} path={path} element={element} />
+  ))
+
+  useCheckUserAuth()
+
+  useEffect(() => {
+    const slicedPath = `/${pathname.split('/')[1]}`
+
+    !Object.values(ROUTES).includes(slicedPath) && navigate(ROUTES.MAIN)
+  }, [])
+
+  return <Routes>{RouteList}</Routes>
+}

@@ -1,16 +1,21 @@
-import { dayCard } from '../../constants/dayCard'
 import { CardSwitcher } from '../CardSwitcher'
+import moment from 'moment'
+import cn from 'classnames'
 
-export const SwitchDay = () => {
-  const switcherDayList = dayCard.map(
-    ({ theDay, theDate, srcImage, maxTemperature, minTemperature }) => (
+export const SwitchDay = ({daysList, currentDay, changeCurrentDay}: any) => {
+
+  const switcherDayList = daysList.map(
+    (dayCard: any, index: number) => (
       <CardSwitcher
-        key={theDay}
-        theDay={theDay}
-        theDate={theDate}
-        srcImage={srcImage}
-        maxTemperature={maxTemperature}
-        minTemperature={minTemperature}
+        key={dayCard?.date_epoch || index}
+        theDay={moment(dayCard?.date).format('dddd')}
+        date_epoch={dayCard.date_epoch}
+        theDate={dayCard?.date}
+        currentDay={currentDay}
+        srcImage={dayCard?.day?.condition?.icon}
+        maxTemperature={dayCard?.day?.maxtemp_c}
+        minTemperature={dayCard?.day?.mintemp_c}
+        changeCurrentDay={changeCurrentDay}
       />
     )
   )

@@ -1,8 +1,15 @@
+@import '../mixins.scss';
+@import '../functions.scss';
+
 .app-city {
-  min-height: 100vh;
+  padding: 20px 0;
   background: linear-gradient(45deg, #2980B9, #6DD5FA, white);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
+
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
 }
 
 @keyframes gradient {
@@ -17,54 +24,16 @@
   }
 }
 
-.head-main-page {
-  background-color: white;
-}
-
-.container-header-main-page {
-  margin: 0 auto;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo img {
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-}
-
-.input-header {
-  position: relative;
-}
-
-.input-header input {
-  outline: 2px solid black;
-  padding: 9px 30px 9px 14px;
-  border-radius: 15px;
-  width: 400px;
-  font-size: 15px;
-}
-
-.language-changer {
-  display: flex;
-  align-items: center;
-}
-
-
-.search-icon {
-  position: absolute;
-  top: 6px;
-  left: 370px;
-}
-
 .content-container-city-page {
   background-color: white;
   border-radius: 7px;
-  padding: 40px 20px;
-  margin: 40px auto;
+  margin: 0 auto;
+  padding: 30px 20px;
   max-width: 1200px;
+
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
 }
 
 .title-city {
@@ -75,6 +44,10 @@
   align-items: center;
   border-bottom: 2px solid rgb(0, 191, 255);
   margin-bottom: 40px;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .selected-city-title {
@@ -107,6 +80,10 @@ label input[type="checkbox"] {
 
 .custom-checkbox .glyphicon-star-empty {
   color: rgb(0, 0, 0);
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .custom-checkbox .glyphicon-star {
@@ -140,6 +117,10 @@ label input[type="checkbox"] {
 
 .custom-checkbox-sport .glyphicon-star-empty {
   color: rgb(0, 0, 0);
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .custom-checkbox-sport .glyphicon-star {
@@ -158,6 +139,10 @@ label input[type="checkbox"] {
   justify-content: space-between;
   background-color: #eee;
   padding: 9px;
+
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
 }
 
 .sport-box {
@@ -167,6 +152,10 @@ label input[type="checkbox"] {
   padding: 4px;
   display: flex;
   flex-wrap: wrap;
+
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
 }
 
 .sport-card-box-city {
@@ -176,6 +165,10 @@ label input[type="checkbox"] {
   background-color: white;
   margin: 5px; 
   width: 32.4%;
+
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
 }
 
 .title-box-sport {
@@ -185,19 +178,30 @@ label input[type="checkbox"] {
   align-items: center;
   font-size: 30px;
   margin-bottom: 20px;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .data-box-sport div {
   margin-bottom: 5px;
-}
 
-.data-box-sport div span {
-  font-weight: 700;
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+  span {
+    font-weight: 700;
+  }
 }
 
 .days {
   background-color: white;
   border-radius: 7px;
+
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
 }
 
 .main-forecast {
@@ -207,6 +211,10 @@ label input[type="checkbox"] {
   display: flex;
   justify-content: space-between;
   padding: 9px;
+
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
 }
 
 .day-card {
@@ -216,10 +224,21 @@ label input[type="checkbox"] {
   height: 110px;
   margin: 9px;
   padding: 10px;
+
+  @include themify($themes) {
+    background: themed('colorApp');
+    color: themed('colorText');
+  }
 }
 
 .bg-color {
   background-color: rgb(0, 191, 255);
+}
+
+.bg-color-dark {
+  @include themify($themes) {
+    background: themed('bgDark');
+  }
 }
 
 .title-card {
@@ -229,6 +248,10 @@ label input[type="checkbox"] {
 .description-card {
   margin-top: 5px;
   color: rgba(0, 0, 0, 0.485);
+
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  }
 }
 
 .visual-card {
@@ -236,13 +259,16 @@ label input[type="checkbox"] {
   align-items: center;
 }
 
-.max { 
+.max-city { 
   font-size: 15px;
   margin-bottom: 3px;
 }
 
-.min {
-  color: rgba(0, 0, 0, 0.485);
+.min-city {
+  color: rgba(88, 87, 87, 0.362);
+  @include themify($themes) {
+    color: themed('colorText');
+  }
 }
 
 .title-main {
@@ -251,6 +277,11 @@ label input[type="checkbox"] {
   background-color: #eee;
   border-radius: 7px;
   padding: 9px;
+
+  @include themify($themes) {
+    background: themed('colorApp');
+    color: themed('colorText');
+  } 
 }
 
 .data-main {
@@ -258,6 +289,11 @@ label input[type="checkbox"] {
   border-radius: 7px;
   padding: 0 9px;
   display: flex;
+
+  @include themify($themes) {
+    background: themed('colorApp');
+    color: themed('colorText');
+  } 
 }
 
 .text-title-main {
@@ -269,6 +305,10 @@ label input[type="checkbox"] {
 .description-title-main {
   color: rgba(0, 0, 0, 0.485);
   margin-bottom: 20px;
+
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  }
 }
 
 .temperature-title-main {
@@ -281,10 +321,8 @@ label input[type="checkbox"] {
   position: relative;
 }
 
+
 .icon-title-main {
-  position: absolute;
-  bottom: 20px;
-  right: 75px;
   display: flex;
   justify-content: start;
   align-items: flex-start;
@@ -297,23 +335,26 @@ label input[type="checkbox"] {
 
 .vertical-box-titles {
   padding-top: 7px;
-}
-
-.vertical-box-titles div {
+  div {
   width: 100px;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.518);
   margin: 21px 0;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+  }
+  
 }
 
 .box-titles-values {
   width: 100%;
   display: flex;
   padding: 13px 0 0 0 ;
-}
-
-.box-titles-values div {
-  margin: 0 0 18px 0;
+  div {
+    margin: 0 0 18px 0;
+  }
 }
 
 .card-values-forecast {
@@ -331,6 +372,10 @@ label input[type="checkbox"] {
 .time {
   font-size: 12px;
   color: rgba(0, 0, 0, 0.518);
+
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  } 
 }
 
 .icon img {
@@ -345,6 +390,10 @@ label input[type="checkbox"] {
 
 .feels-like {
   color: rgba(0, 0, 0, 0.518);
+
+  @include themify($themes) {
+    color: themed('colorTextShadow');
+  } 
 }
 
 .condition {

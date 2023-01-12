@@ -1,0 +1,76 @@
+.header {
+  background: #fff;
+
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+  }
+}
+
+.container-header-main-page {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.language-changer {
+  display: flex;
+  align-items: center;
+  span {
+    display: inline-block;
+    padding: 5px;
+  }
+}
+
+.focus-language {
+  border-radius: 13px;
+  background-color: rgb(0, 191, 255);
+
+  
+  @include themify($themes) {
+    background: themed('colorApp');
+  }
+}
+
+.language-changer span {
+  margin-left: 10px;
+  cursor: pointer;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}
+
+.input-header {
+  position: relative;
+}
+
+.input-header input {
+  padding: 9px 30px 9px 14px;
+  border-radius: 15px;
+  width: 400px;
+  font-size: 15px;
+
+  @include themify($themes) {
+    background: themed('colorHeaderFooter');
+    outline: themed('outlineDark');
+    color: themed('colorText');
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 370px;
+
+  @include themify($themes) {
+    color: themed('colorText');
+  }
+}

@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../../../../constants/routes'
+import { ROUTES } from '../../../../constants/routes/routes'
+import { useTranslation } from 'react-i18next'
 
 export const Header = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="my-account-head">
       <div className="logo">
@@ -12,9 +15,9 @@ export const Header = () => {
           />
         </Link>
       </div>
-      <div className="logo-account">MY ACCOUNT</div>
+      <div className="logo-account">{t('account.myAccountLogo')}</div>
       <Link to={ROUTES.SIGNIN}>
-        <div className="exit-account">Sign Out</div>
+        <div className="exit-account">{t('account.exitAccount')}</div>
       </Link>
     </div>
   )
