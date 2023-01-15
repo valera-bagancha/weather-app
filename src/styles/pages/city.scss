@@ -6,6 +6,7 @@
   background: linear-gradient(45deg, #2980B9, #6DD5FA, white);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
+  min-height: 100vh;
 
   @include themify($themes) {
     background: themed('colorApp');
@@ -398,4 +399,11 @@ label input[type="checkbox"] {
 
 .condition {
   padding: 9px 0 14px 0;
+}
+
+.error-message-city {
+  color: tomato;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
 }

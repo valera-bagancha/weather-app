@@ -17,8 +17,8 @@ export const registerUserAsync =
   export const logInUserAsync =
   (userParam: any) =>
   async (dispatch: Dispatch): Promise<void> => {
+    
     const user = await AuthService.logInUser(userParam)
-    console.log('user', user);
     
     if (!user) return
 

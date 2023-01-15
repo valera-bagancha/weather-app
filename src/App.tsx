@@ -1,13 +1,11 @@
-import { PersistGate } from 'redux-persist/integration/react'
+import cn from 'classnames'
 import { useState, FC } from 'react'
 import { Provider } from 'react-redux'
-import cn from 'classnames'
-import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n'
+import { PersistGate } from 'redux-persist/integration/react'
 
-import { MessageModal } from './components/MessageModal'
-import { store, persistor } from './redux/store'
 import { Layout } from './Layout'
+import { store, persistor } from './redux/store'
+import { MessageModal } from './components/MessageModal'
 
 import './styles/main.scss'
 import { ThemeContext } from './context/themeContext'
@@ -36,7 +34,6 @@ export const App: FC = () => {
       <PersistGate persistor={persistor}>
         <MessageModalContext.Provider value={openModal}>
           <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode: changeTheme }}>
-            <I18nextProvider i18n={i18n}>
               <div className={themeStyles}>
                 {modalData.showModal && (
                   <MessageModal
@@ -47,7 +44,6 @@ export const App: FC = () => {
                 )}
                 <Layout />
               </div>
-            </I18nextProvider>
           </ThemeContext.Provider>
         </MessageModalContext.Provider>
       </PersistGate>

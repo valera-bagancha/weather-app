@@ -1,13 +1,10 @@
-import { FC, useCallback } from 'react'
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../../constants/routes/routes';
+import { FC } from 'react'
+import { Link } from 'react-router-dom'
 
 interface IProps {
   linkName: string;
   linkRoute: string
 }
-
 
 export const FooterAuth: FC<IProps> = ({linkName, linkRoute}) => {
   return (

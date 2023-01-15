@@ -34,7 +34,8 @@
 }
 
 .box {
-  width: 60%;
+  width: 100%;
+  margin-left: 10px;
 }
 
 .forecast {
@@ -70,8 +71,17 @@
   display: flex;
 }
 
+.min {
+  span {
+    margin-left: 5px;
+  }
+}
+
 .max {
   margin-left: 10px;
+  span {
+    margin-left: 5px;
+  }
 }
 
 .forecast-content {
@@ -114,12 +124,11 @@
 }
 
 .favorite-box {
+  width: 49%;
   padding: 5px 20px 30px;
   border-radius: 7px;
   background-color: white;
-  width: 39%;
-  min-height: 220px;
-  height: 100%;
+  margin: 0 10px;
 
   @include themify($themes) {
     background: themed('colorHeaderFooter');
@@ -150,6 +159,9 @@
   justify-content: space-between;
   border-bottom: 1px solid rgb(0, 191, 255);
   padding: 20px 20px 10px;
+  div {
+    cursor: pointer;
+  }
 
   @include themify($themes) {
     color: themed('colorText');
@@ -245,7 +257,20 @@
 
 .input-main {
   display: flex;
-  margin: 0 auto;
-  max-width: 1200px;
+  justify-content: center;
   padding: 10px 0;
+}
+
+.text-for-empty-favorites {
+  margin: 20px;
+  color: tomato;
+}
+
+.empty-main-forecast {
+  color: tomato;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  // margin: 50px 0;
 }

@@ -2,14 +2,14 @@ import { useTranslation } from 'react-i18next'
 
 export const GeneralTemperature = ({location, currentDayData }: any) => {
   const arr = currentDayData?.hour
+
+  const { t } = useTranslation()
  
   const temp = arr?.reduce((sum: any, i: any) => sum + i.temp_c, 0) / (currentDayData?.hour?.length)
   const tempFeelsLike = arr?.reduce((sum: any, i: any) => sum + i.feelslike_c, 0) / (currentDayData?.hour?.length)
 
   const currentGeneralTemp = Math.round(temp)
   const currentGeneralTempFeelsLike = Math.round(tempFeelsLike)
-  
-  const { t } = useTranslation()
 
   return (
     <div className="title-main">

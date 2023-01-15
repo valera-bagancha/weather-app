@@ -1,6 +1,6 @@
-import { CardSwitcher } from '../CardSwitcher'
 import moment from 'moment'
-import cn from 'classnames'
+
+import { CardSwitcher } from '../CardSwitcher'
 
 export const SwitchDay = ({daysList, currentDay, changeCurrentDay}: any) => {
 

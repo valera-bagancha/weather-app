@@ -1,16 +1,17 @@
-import { useNavigate } from 'react-router-dom'
-import { Formik, Form } from 'formik'
-
-import { FooterAuth } from '../../components/FooterAuth'
-import { signInValidationSchema } from '../../utils/auth/signInValidationSchema'
-import { ROUTES } from '../../constants/routes/routes'
-import { getInputsList } from '../../utils/auth/UI/getInputsList'
-import { inputs } from './constants/inputs'
-import { useDispatch } from 'react-redux'
-import { logInUserAsync } from '../../redux/auth/actions'
 import { useContext } from 'react'
+import { Formik, Form } from 'formik'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+import { inputs } from './constants/inputs'
+import { ROUTES } from '../../constants/routes/routes'
+import { FooterAuth } from '../../components/FooterAuth'
+import { logInUserAsync } from '../../redux/auth/actions'
+import { getInputsList } from '../../utils/auth/UI/getInputsList'
 import { MessageModalContext } from '../../context/messageModalContext'
 import { generateInitialValues } from '../../utils/generateInitialFormikValues'
+import { signInValidationSchema } from '../../utils/auth/signInValidationSchema'
+
 
 export const SignIn = () => {
   const openModal = useContext(MessageModalContext)
@@ -25,12 +26,6 @@ export const SignIn = () => {
       openModal(error.message, true)
     }
   }
-
-
-  // const initialValues = {
-  //   email: '',
-  //   password: '',
-  // }
 
   return (
     <div className="app-auth">

@@ -1,5 +1,6 @@
-import { titles } from '../../constants/titles'
 import { CardTitles } from '../CardTitles'
+import { titles } from '../../constants/titles'
+
 
 export const TitlesCard = () => {
 

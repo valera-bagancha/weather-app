@@ -329,6 +329,86 @@
       "firstName": "sdfg",
       "lastName": "adsf",
       "id": 42
+    },
+    {
+      "email": "vale@gmail.com",
+      "password": "$2a$10$hav04JQuNeu5syqC0qA7cunJykahM7A/.c5qd3OWOAi4Xt3mFVK02",
+      "phoneNumber": "32534123",
+      "firstName": "valera",
+      "lastName": "dasgdf",
+      "id": 43
+    },
+    {
+      "email": "valeraba@gmail.com",
+      "password": "$2a$10$.dd0mJcprCGADosQMnh.J.SQ3KVrVJKt9V/P3Xg9zhrBP.EM3C4wO",
+      "phoneNumber": "132153",
+      "firstName": "Valera",
+      "lastName": "fgsfads",
+      "id": 44
+    },
+    {
+      "email": "valera@gmail.com",
+      "password": "$2a$10$eZYxofy7piOUvnywu4mRV.y1aNR2b.GpbIyvhYZh6l2ju7zz79MEC",
+      "phoneNumber": "132534",
+      "firstName": "valeraB",
+      "lastName": "dasgdsf",
+      "id": 45
+    },
+    {
+      "email": "valer@gmail.com",
+      "password": "$2a$10$/MAZeVC3scdHvhukw3W5Se9oyfJuSF2V9YAS2Ucw9QnGah5MWMTXC",
+      "phoneNumber": "2345234",
+      "firstName": "Maxim",
+      "lastName": "dsagsdf",
+      "id": 46
+    },
+    {
+      "email": "tema@gmail.com",
+      "password": "$2a$10$jvZ63HFHie5hzn6HxoylsOYI8XGiZlHitNdgZd0bzkupLXXDEUK7O",
+      "phoneNumber": "3293254",
+      "firstName": "tema",
+      "lastName": "ahdsgbasd",
+      "id": 47
+    },
+    {
+      "email": "handler@gmail.com",
+      "password": "$2a$10$/7e9UscwSBw8BNUtKc3gSuLIDm7/6m0VHUvHCrxCCwfcYjxXOJcqy",
+      "phoneNumber": "43534234",
+      "firstName": "Mexim",
+      "lastName": "adsfadsg",
+      "id": 48
+    },
+    {
+      "email": "oleg@gmail.com",
+      "password": "$2a$10$yHKUVTLRdougZ2xcSzDswe2SDeuQsBltxPmV4obND988hZUkqWL1C",
+      "phoneNumber": "351423",
+      "firstName": "Oleg",
+      "lastName": "sdagdas",
+      "id": 49
+    },
+    {
+      "email": "gamsf@gmail.com",
+      "password": "$2a$10$5kNPJDOKGm.rfyRd/1FlLecKLadpnpZyg8REu0qjDHeID7CYLmwky",
+      "phoneNumber": "123241325",
+      "firstName": "grgorii",
+      "lastName": "adsfsd",
+      "id": 50
+    },
+    {
+      "email": "mishunika33@gmail.com",
+      "password": "$2a$10$C17NlRt71dDHPdscVWoyqejuP6QtUycsFsNGdi1Q5kviLxWU8Ry8O",
+      "phoneNumber": "132532413",
+      "firstName": "Misha",
+      "lastName": "sdafasd",
+      "id": 51
+    },
+    {
+      "email": "valeragdsa@gmail.com",
+      "password": "$2a$10$qQqScUtRut79Wgw4TBmSceEV4CQO/ePeK3eOix0PszA3fHvHJrHmK",
+      "phoneNumber": "325334",
+      "firstName": "bogdan",
+      "lastName": "asdfsdf",
+      "id": 52
     }
   ]
 }

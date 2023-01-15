@@ -7,9 +7,7 @@ const initialState = {
 }
 
 
-export const authReducer = (state: any = initialState, { type, payload }: Action) => {
-  console.log('state', state);
-  
+export const authReducer = (state: any = initialState, { type, payload }: Action) => {  
   switch (type) {
     case ActionTypes.SET_AUTH_DATA:
       return payload;

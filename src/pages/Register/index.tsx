@@ -1,24 +1,23 @@
-import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
 import { Formik, Form } from 'formik'
 import { useDispatch } from 'react-redux'
-import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import { FooterAuth } from '../../components/FooterAuth'
-import { ROUTES } from '../../constants/routes/routes'
-import { registerValidationSchema } from '../../utils/auth/registerValidationSchema'
-import { getInputsList } from '../../utils/auth/UI/getInputsList'
 import { inputs } from './constants/inputs'
+import { ROUTES } from '../../constants/routes/routes'
+import { FooterAuth } from '../../components/FooterAuth'
 import { registerUserAsync } from '../../redux/auth/actions'
-// import { IUserRegister } from '../../redux/auth/types'
+import { getInputsList } from '../../utils/auth/UI/getInputsList'
 import { removeObjectField } from '../../utils/removeObjectField'
 import { MessageModalContext } from '../../context/messageModalContext'
 import { generateInitialValues } from '../../utils/generateInitialFormikValues'
+import { registerValidationSchema } from '../../utils/auth/registerValidationSchema'
 
 export const Register = () => {
   const openModal = useContext(MessageModalContext)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
+  
   const onSubmit = async (values: any) => {
     try {
       await dispatch(

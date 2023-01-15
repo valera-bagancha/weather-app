@@ -1,14 +1,11 @@
 import { FC } from 'react'
 import cn from 'classnames'
 
-
 interface IProps {
   message: string
   hideModal: () => void;
   isError?: boolean;
 }
-
-
 
 export const MessageModal: FC<IProps> = ({ message, hideModal, isError }) => {
   const appModalStyles = cn('modal-box', {

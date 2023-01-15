@@ -1,30 +1,18 @@
-import cn from 'classnames'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../../constants/routes/routes'
 import { useTranslation } from 'react-i18next'
 
+import { ROUTES } from '../../constants/routes/routes'
+
 export const Header = () => {
-  // const [language, setLanguage] = useState('english')
   const {i18n} = useTranslation()
 
   const activeClassUa = () => {
-    // setLanguage('ukrainian')
     i18n.changeLanguage('ua')
   }
 
   const activeClassUs = () => {
-    // setLanguage('english')
     i18n.changeLanguage('en')
   }
-
-  // const focusUs = cn({
-  //   ['focus-language']: language === 'english',
-  // })
-
-  // const focusUa = cn({
-  //   ['focus-language']: language === 'ukrainian',
-  // })
 
   return (
     <header className="header">

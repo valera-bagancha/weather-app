@@ -1,24 +1,9 @@
 { 
   "inputPlaceholder": "Пошук мiста",
-  "forecastMain": {
-    "mainForecastDataWind": "Вітер",
-    "mainForecastDataHumidity": "Вологість",
-    "mainForecastDataPressure": "Тиск",
-    "mainForecastDataCloud": "Хмарнiсть",
-    "mainForecastDataUvIndex": "УФ-індекс"
-  },
   "favoriteMain": {
     "titleFavorites": "Улюблені міста/спортивні події",
     "favoritesCity": "Улюблені мiста:",
     "favoritesSportEvent": "Спортивні заходи:"
-  },
-  "sportEvent": {
-    "mainSportEventTitle": "Футбол",
-    "mainSportEventDataMatch": "Матч",
-    "mainSportEventDataStart": "Початок",
-    "mainSportEventDataStadium": "Стадіон",
-    "mainSportEventDataTournament": "Турнір",
-    "mainSportEventDataCountry": "Країна"
   },
   "account": {
     "myAccountLogo": "МIЙ АКАУНТ",
@@ -34,10 +19,8 @@
     "nextHourWeather": "Прогноз в середньому на день",
     "feelsLike": "Відчувається, як"
   },
-  "titlesCards": [
-    { "title": "Temperature", "className": "condition" },
-    { "title": "Feels Like" },
-    { "title": "Chance of rain" }
-  ]
-
+  "empty-field": "Вибраних немає",
+  "sportEvent": {
+    "mainSportEventTitle": "Футбол"
+  }
 }
