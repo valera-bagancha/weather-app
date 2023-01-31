@@ -1,32 +1,36 @@
 @import '../mixins.scss';
 @import '../functions.scss';
 
-.app-main {
-  flex-grow: 1;
-  height: 100%;
-  padding: 0 0 20px 0;
-  background: linear-gradient(45deg, #2980B9, #6DD5FA, white);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
+// .app-main {
+//   flex-grow: 1;
+//   height: 100%;
+//   padding: 0 0 20px 0;
+//   background: linear-gradient(45deg, #2980B9, #6DD5FA, white);
+//   background-size: 400% 400%;
+//   animation: gradient 10s ease infinite;
 
-  @include themify($themes) {
-    background: themed('colorApp');
-  }
-}
+//   @include themify($themes) {
+//     background: themed('colorApp');
+//   }
+// }
 
-@keyframes gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
+// @keyframes gradient {
+//   0% {
+//     background-position: 0 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+//   100% {
+//     background-position: 0 50%;
+//   }
+// }
 
 .container-main-content {
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
   margin: 0 auto;
   max-width: 1200px;
   display: flex;
@@ -244,7 +248,6 @@
   border-bottom: 1px solid rgb(0, 191, 255);
   font-size: 16px;
   padding: 10px;
-
 }
 
 .data-title {
@@ -272,5 +275,24 @@
   display: flex;
   justify-content: center;
   padding: 50px 0;
-  // margin: 50px 0;
+}
+
+// .intro {
+//   position: relative;
+//   background-size: cover;
+//   min-height: 100vh;
+//   overflow: hidden;
+// }
+
+// .video-box-main {
+//   position: relative;
+// }
+
+.video-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  min-height: auto;
 }

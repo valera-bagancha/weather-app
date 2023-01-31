@@ -1,11 +1,22 @@
 import { FC } from 'react'
+import { IFootball } from '../../../../../../types/city/sportEvents';
 
-export const SportFavorite: FC<any> = ({
+interface IProps {
+  sportEvent: IFootball;
+  deleteCurrentSportEvent: (param: string) => void
+  changeCurrentSportEvent: (param: IFootball) => void
+}
+
+export const SportFavorite: FC<IProps> = ({
   sportEvent,
   changeCurrentSportEvent,
   deleteCurrentSportEvent,
 }) => {
-  const onSportEventDelete = () => deleteCurrentSportEvent(sportEvent.match)
+  const onSportEventDelete = () => {
+    if (!sportEvent.match) return
+    return deleteCurrentSportEvent(sportEvent.match)
+  }
+
 
   const onSportEventChange = () => changeCurrentSportEvent(sportEvent)
 

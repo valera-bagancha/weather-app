@@ -1,16 +1,20 @@
-import { FC } from 'react'
-import { forecastPreviews } from '../../../../../constants/forecastPreviews'
+import { FC, useContext } from 'react'
 
+import { forecastPreviews } from '../../../../../constants/forecastPreviews'
+import { UnitContext } from '../../../../../../../context/unitContext'
 import { ForecastContentCard } from './ForecastContentCard'
+import { IForecastPreview } from '../../../../../../../types/main/forecastPreview'
 
 interface IProps {
-  current: any
+  current: IForecastPreview
 }
 
-export const ForecastContent: FC<IProps> = ({ current }) => {
-  console.log(current);
-  
-  const ForecastContentList = forecastPreviews.map(
+export const ForecastContent: FC<IProps> = ({ current }) => { 
+ const { unit } = useContext(UnitContext)
+
+  const  forecastPreviewsArr = forecastPreviews(unit)
+    
+  const ForecastContentList = forecastPreviewsArr.map(
     ({ imgPreviewContent, title, apiKey }) => (
       <ForecastContentCard
         key={title}

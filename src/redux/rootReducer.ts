@@ -4,11 +4,12 @@ import localStorage from 'redux-persist/lib/storage'
 
 import { authReducer } from './auth/authReducer'
 import { favoriteReducer } from './favorite/favoriteReducer'
+import { searchHistoryReducer } from './searchHistory/searchHistoryReducer'
 
 const persistConfig = {
   key: 'root',
   storage: localStorage,
-  whiteList: ['auth', 'favorites'],
+  whiteList: ['auth', 'favorites', 'history'],
 }
 
 export const rootReducer = persistReducer(
@@ -16,5 +17,7 @@ export const rootReducer = persistReducer(
   combineReducers({
     auth: authReducer,
     favorites: favoriteReducer,
+    history: searchHistoryReducer,
   })
 )
+

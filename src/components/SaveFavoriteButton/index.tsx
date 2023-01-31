@@ -3,11 +3,12 @@ import { FC } from 'react'
 interface IProps {
   checked: boolean;
   onChange: () => void;
+  className: string;
 }
 
-export const SaveFavoriteButton: FC <IProps> = ({checked, onChange}) => {
+export const SaveFavoriteButton: FC <IProps> = ({checked, onChange, className}) => {
   return (
-    <label className="custom-checkbox">
+    <label className={className}>
       <input
         type="checkbox"
         id="id-of-input"

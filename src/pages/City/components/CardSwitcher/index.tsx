@@ -1,16 +1,22 @@
 
 import cn from 'classnames'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
+import { UnitContext } from '../../../../context/unitContext'
 
-// interface IProps {
-//   theDay: string
-//   theDate: string
-//   srcImage: string
-//   maxTemperature: string
-//   minTemperature: string
-// }
+interface IProps {
+  date_epoch: number;
+  currentDay: number | null | undefined;
+  theDay: string;
+  theDate: string;
+  srcImage: string;
+  maxTemperature: number;
+  minTemperature: number;
+  changeCurrentDay: (param: number) => void
+  maxTemperatureF: number;
+  minTemperatureF: number;
+}
 
-export const CardSwitcher = ({
+export const CardSwitcher: FC<IProps> = ({
   date_epoch,
   currentDay,
   theDay,
@@ -19,7 +25,12 @@ export const CardSwitcher = ({
   maxTemperature,
   minTemperature,
   changeCurrentDay,
-}: any) => {
+  maxTemperatureF,
+  minTemperatureF
+}) => {
+
+  const { unit } = useContext(UnitContext)
+
   return (
     <div
       className={cn('day-card', {
@@ -35,8 +46,8 @@ export const CardSwitcher = ({
           <img src={srcImage} alt="" />
         </div>
         <div className="temperature-card">
-          <div className="max-city">{maxTemperature}</div>
-          <div className="min-city">{minTemperature}</div>
+          <div className="max-city">{unit ? maxTemperatureF : maxTemperature}</div>
+          <div className="min-city">{unit ? minTemperatureF : minTemperature}</div>
         </div>
       </div>
     </div>

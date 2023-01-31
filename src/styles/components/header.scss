@@ -1,6 +1,7 @@
 .header {
   background: #fff;
 
+
   @include themify($themes) {
     background: themed('colorHeaderFooter');
   }
@@ -15,9 +16,9 @@
 }
 
 .logo img {
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
+  // width: 70px;
+  // height: 70px;
+  // cursor: pointer;
 }
 
 .language-changer {
@@ -50,6 +51,10 @@
 
 .input-header {
   position: relative;
+  // position: absolute;
+  // top: 78px;
+  // left: 50%;
+  // transform: translate(-50%, );
 }
 
 .input-header input {
@@ -64,6 +69,30 @@
     color: themed('colorText');
   }
 }
+.autocomplete {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  z-index: 111;
+
+  @include themify($themes) {
+    background: themed('colorApp');
+    color: themed('colorText');
+  }
+}
+
+.autocomplete-item {
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(134, 134, 134, 0.375);
+    transition: all 0.2s ease
+  }
+}
+
 
 .search-icon {
   position: absolute;

@@ -5,17 +5,17 @@ export interface ICricket{
   stadium: string;
   start: string;
   tournament: string;
-  [key: string]: any
+  
 }
 
 export interface IFootball {
-  country: string;
-  match: string;
-  region: string;
-  stadium: string;
-  start: string;
-  tournament: string;
-  [key: string]: any
+  country?: string;
+  match?: string;
+  region?: string;
+  stadium?: string;
+  start?: string;
+  tournament?: string;
+  [key: string]: any;
 }
 
 export interface IGolf{
@@ -25,7 +25,7 @@ export interface IGolf{
   stadium: string;
   start: string;
   tournament: string;
-  [key: string]: any
+  // [key: string]: string
 }
 
 export interface ISportEvents {

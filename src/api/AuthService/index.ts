@@ -1,35 +1,32 @@
 import  axios from 'axios'
 import { URLS } from '../../constants/api/urls'
-// import { ISetAuthData } from '../../redux/auth/types'
-import { FC } from 'react'
-// interface IProps {
-//   email: string,
-//   firstName: string,
-//   lastName: string,
-//   password: string,
-//   phoneNumber: string,
-// }
+import { ILogIn, IRegister } from '../../redux/auth/types'
+import { IErrorMessage } from '../../types/errorType';
+import { IUserData } from '../../types/userData/user';
 
 class AuthService {
-  async registerUser(user: any): Promise<any> {
+  async registerUser(user: IRegister): Promise<IUserData> {
     try {
-      const { data } = await axios.post<any>(URLS.register, user)
+      const { data } = await axios.post<IUserData>(URLS.register, user)
       
       return data
-    } catch (error: any) {
-      throw new Error(error.response.data);
+    } catch (error) {
+      const errorMessage = error as IErrorMessage
+      throw new Error(errorMessage.response.data);
     }
   }
 
-  async logInUser(user: any): Promise<any> {
+  async logInUser(user: ILogIn): Promise<IUserData> {
     try {
-      const { data } = await axios.post<any>(URLS.login, user)
-
+      const { data } = await axios.post<IUserData>(URLS.login, user)
+      
       return data
-    } catch (error: any) {
+    } catch (error) {
 
-      throw new Error(error.response.data);
+      const errorMessage = error as IErrorMessage
+      throw new Error(errorMessage.response.data);
     }
+    
   }
 }
 

@@ -10,12 +10,14 @@ import { MessageModal } from './components/MessageModal'
 import './styles/main.scss'
 import { ThemeContext } from './context/themeContext'
 import { MessageModalContext } from './context/messageModalContext'
+import { UnitContext } from './context/unitContext'
 
 export const App: FC = () => {
   const defaultValue = { message: '', showModal: false, isError: false }
 
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [modalData, setModalData] = useState(defaultValue)
+  const [unit, setUnit] = useState(false)
 
   const hideModal = () => setModalData(defaultValue)
 
@@ -23,6 +25,7 @@ export const App: FC = () => {
     setModalData({ message, isError, showModal: true })
 
   const changeTheme = (mode: boolean) => setIsDarkMode(mode)
+  const changeUnit = (mode: boolean) => setUnit(mode)
 
   const themeStyles = cn({
     ['theme-dark']: isDarkMode,
@@ -33,6 +36,7 @@ export const App: FC = () => {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <MessageModalContext.Provider value={openModal}>
+          <UnitContext.Provider value={{ unit, setUnit: changeUnit}}>
           <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode: changeTheme }}>
               <div className={themeStyles}>
                 {modalData.showModal && (
@@ -45,6 +49,7 @@ export const App: FC = () => {
                 <Layout />
               </div>
           </ThemeContext.Provider>
+          </UnitContext.Provider>
         </MessageModalContext.Provider>
       </PersistGate>
     </Provider>

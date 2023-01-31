@@ -19,6 +19,7 @@
     "nextHourWeather": "Average forecast for the day",
     "feelsLike": "Feels like"
   },
+  "empty-field": "There are no chosen ones",
   "sportEvent": {
     "mainSportEventTitle": "Football"
   }

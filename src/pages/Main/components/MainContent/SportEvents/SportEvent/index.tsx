@@ -5,9 +5,12 @@ interface IProps {
   value: string
 }
 
-export const SportEvent: FC<IProps> = ({ title, value }) => (
-  <div className="title-event">
+export const SportEvent: FC<IProps> = ({ title, value }) => {
+
+  return (
+<div className="title-event">
     <span>{title}:</span>
     {value}
   </div>
-)
+  )
+}

@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { URLS } from '../../constants/api/urls';
 import { headers } from '../../constants/api/headers';
-
+import { IPastDays } from '../../types/city/yesterdayDate';
 
 class DayBeforeYesterdayWeatherService {
-  async getDayBeforeYesterday(city: any, dayBeforeYesterday: any): Promise<any> {
+  async getDayBeforeYesterday(city: string, dayBeforeYesterday: string): Promise<IPastDays | void> {
     try {
-      const {data} = await axios.get<any>(URLS.getYesterday, {
+      const {data} = await axios.get<IPastDays>(URLS.getYesterday, {
         params: {
           q: city, 
           dt: dayBeforeYesterday, 

@@ -7,6 +7,7 @@
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
   min-height: 100vh;
+ 
 
   @include themify($themes) {
     background: themed('colorApp');
@@ -23,6 +24,13 @@
   100% {
     background-position: 0 50%;
   }
+}
+
+.animation-bg {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  z-index: 100;
 }
 
 .content-container-city-page {

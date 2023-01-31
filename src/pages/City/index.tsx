@@ -21,32 +21,46 @@ import {
   deleteFavoriteCity,
 } from '../../redux/favorite/actionCreators'
 import { SaveFavoriteButton } from '../../components/SaveFavoriteButton'
+import { ICity, IForecastDay, IHour } from '../../types/city/forecast'
+import { ISportEvents } from '../../types/city/sportEvents'
+import { IPastDays } from '../../types/city/yesterdayDate'
+import { historySearchCity } from '../../redux/searchHistory/selectors'
+import { searHistory } from '../../redux/searchHistory/actionCreators'
+import { IError } from '../../types/errorType'
+import { userID } from '../../redux/auth/selectors'
+import { ICurrentCityUser } from '../../types/currentCityUser'
 
-export const DataContext = createContext([])
+export const DataContext = createContext([] as IHour[])
 
 export const City = () => {
-  const [forecast, setForecast] = useState<any>(null) // ICity
-  const [sportEvents, setSportEvents] = useState<any>(null) // ISportEvents
-  const [yesterdayDate, setYesterdayDate] = useState<any>(null) // IPastDays
+  const [forecast, setForecast] = useState<ICity | null>(null)
+  const [sportEvents, setSportEvents] = useState<ISportEvents | null>(null)
+  const [yesterdayDate, setYesterdayDate] = useState<IPastDays | null>(null)
   const [dayBeforeYesterdayDate, setDayBeforeYesterdayDate] =
-    useState<any>(null) // IPastDays
+    useState<IPastDays | null>(null)
 
-  const [currentDay, setCurrentDay] = useState<any>(null) // number
+  const [currentDay, setCurrentDay] = useState<number | null | undefined>(null)
   const [isForecastLoading, setIsForecastLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const favoritesCities = useSelector(favoriteCityDataSelector)
+  const idUser = useSelector(userID)
 
-  const sportEventValue = sportEvents?.football || []
-  const yesterdayNum = yesterdayDate?.forecast.forecastday[0] || {}
-  const dayBeforeYesterdayNum =
-    dayBeforeYesterdayDate?.forecast.forecastday[0] || {}
+    const sportEventValue = sportEvents?.football || []
+  const yesterdayNum = yesterdayDate?.forecast.forecastday[0]
+  const dayBeforeYesterdayNum = dayBeforeYesterdayDate?.forecast?.forecastday[0]
   const nextDays = forecast?.forecast.forecastday || []
 
-  const cityName = forecast?.location?.name
+  const cityName = forecast?.location?.name || ''
+  const currentCityFavorite = favoritesCities.filter(
+    (id: ICurrentCityUser) => idUser == id.idUser)
 
-  const isCurrentCityFavorite = favoritesCities.includes(cityName)
+  const isCurrentCityFavorite = currentCityFavorite.some(
+    ({ city }: ICurrentCityUser) => city.toLowerCase() === cityName.toLowerCase())
 
-  const daysList = [dayBeforeYesterdayNum, yesterdayNum, ...nextDays]
+  const daysList: IForecastDay[] =
+    !dayBeforeYesterdayNum || !yesterdayNum
+      ? []
+      : [dayBeforeYesterdayNum, yesterdayNum, ...nextDays]
 
   const yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD')
   const dayBeforeYesterday = moment().subtract(2, 'days').format('YYYY-MM-DD')
@@ -55,20 +69,47 @@ export const City = () => {
 
   const { t } = useTranslation()
   const dispatch = useDispatch()
+  const history = useSelector(historySearchCity)
 
   const addFavoriteCityHandler = useCallback(() => {
+    if (!cityName) return null
+
     if (isCurrentCityFavorite) {
-      return dispatch(deleteFavoriteCity(cityName))
+      return dispatch(deleteFavoriteCity(cityName, idUser))
     }
 
-    return dispatch(addFavoriteCity(cityName))
-  }, [cityName, isCurrentCityFavorite])
+    return dispatch(addFavoriteCity(cityName, idUser))
+  }, [cityName, isCurrentCityFavorite, idUser])
 
-  const changeCurrentDay = useCallback((param: any) => setCurrentDay(param), [])
+  const changeCurrentDay = useCallback(
+    (param: number) => setCurrentDay(param),
+    []
+  )
 
   const currentDayData = daysList.find(
-    (day: any) => day.date_epoch === currentDay
+    (day: IForecastDay) => day.date_epoch === currentDay
   )
+
+  const isHistoryIncludes = history.some(
+    (history: ICurrentCityUser) => 
+      history.city.toLowerCase() === cityName.toLowerCase() &&
+      history.idUser === idUser
+  )
+
+
+  useEffect(() => {
+    if (!cityName) return
+    if (!isHistoryIncludes && !errorMessage && idUser !== undefined) {
+      dispatch(searHistory(cityName, idUser))
+    }
+  }, [cityName, errorMessage, idUser])
+
+  // useEffect(() => {
+  //   if (!cityName) return
+  //   if (!history.city.includes(cityName) && !errorMessage && idUser !== undefined) {
+  //     dispatch(searHistory(cityName, idUser))
+  //   }
+  // }, [cityName, errorMessage, idUser])
 
   useEffect(() => {
     setCurrentDay(forecast?.forecast.forecastday[0].date_epoch)
@@ -84,10 +125,12 @@ export const City = () => {
         const forecast = await weatherService.getForecast(id)
         const sportEvents = await sportService.getSportsEvent()
         setForecast(forecast)
+        if (!sportEvents) return
         setSportEvents(sportEvents)
         setIsForecastLoading(false)
-      } catch (error: any) {
-        setErrorMessage(error.message)
+      } catch (error) {
+        const typedError = error as IError
+        setErrorMessage(typedError.message)
         setIsForecastLoading(false)
       }
     })
@@ -106,6 +149,8 @@ export const City = () => {
           cityName,
           dayBeforeYesterday
         )
+
+      if (!yesterdayDate || !dayBeforeYesterdayDate) return
 
       setYesterdayDate(yesterdayDate)
       setDayBeforeYesterdayDate(dayBeforeYesterdayDate)
@@ -126,6 +171,7 @@ export const City = () => {
                     {t('city.weatherIn')} {cityName}
                   </h1>
                   <SaveFavoriteButton
+                    className={'custom-checkbox'}
                     checked={isCurrentCityFavorite}
                     onChange={addFavoriteCityHandler}
                   />
@@ -138,7 +184,7 @@ export const City = () => {
                   />
                   <div className="main-forecast">
                     <GeneralTemperature
-                      currentDayData={currentDayData}
+                      currentDayData={currentDayData!}
                       location={forecast?.location}
                     />
                     <GeneralData />

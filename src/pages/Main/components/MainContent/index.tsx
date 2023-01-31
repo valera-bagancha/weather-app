@@ -1,7 +1,9 @@
 import { FC, useState, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
+import { IFootball } from '../../../.././types/city/sportEvents'
 import WeatherService from '../../../../api/WeatherService'
+import { ICity } from '../../../.././types/city/forecast'
 import { Loader } from '../../../../components/Loader'
 import { delay } from '../../../../utils/delay'
 import {
@@ -11,18 +13,24 @@ import {
 import { SportEvents } from './SportEvents'
 import { Favorite } from '../Favorite'
 import { Forecast } from './Forecast'
+import { userID } from '../../../../redux/auth/selectors'
+import { ICurrentCityUser } from '../../../../types/currentCityUser'
+import { ICurrentSportEventUser } from '../../../../types/currentSportEventUser'
+
 
 export const MainContent: FC = () => {
-  const [currentCity, setCurrentCity] = useState<any>(null)
-  const [currentSportEvent, setCurrentSportEvent] = useState<any>(null)
-
+  const [currentCity, setCurrentCity] = useState<ICity | null>(null)  
+  const [currentSportEvent, setCurrentSportEvent] = useState<IFootball | null>(null)
   const [isForecastMainLoading, setIsForecastMainLoading] = useState(false)
   const [isSportEventMainLoading, setIsSportEventMainLoading] = useState(false)
 
   const favoriteSportsEvents = useSelector(favoriteSportEventDataSelector)
   const favoriteCities = useSelector(favoriteCityDataSelector)
+  const userId = useSelector(userID)
 
-  const changeCurrentSportEvent = useCallback(async (param: any) => {
+
+  const changeCurrentSportEvent = useCallback(async (param: IFootball) => {
+    
     setIsSportEventMainLoading(true)
     await delay(1000)
 
@@ -31,7 +39,8 @@ export const MainContent: FC = () => {
     setIsSportEventMainLoading(false)
   }, [])
 
-  const changeCurrentCity = useCallback(async (param: any) => {
+  const changeCurrentCity = useCallback(async (param: string) => {
+    
     setIsForecastMainLoading(true)
     await delay(1000)
 
@@ -42,8 +51,12 @@ export const MainContent: FC = () => {
     setIsForecastMainLoading(false)
   }, [])
 
-  const isEmptyCityFavorites = !favoriteCities.length
-  const isEmptySportEventFavorites = !favoriteSportsEvents.length
+  const currentCityFavorite = favoriteCities.filter((idUser: ICurrentCityUser) => userId == idUser.idUser)
+  const currentSportEventFavorite = favoriteSportsEvents.filter((idUser: ICurrentSportEventUser) => userId == idUser.idUser) 
+
+  const isEmptyCityFavorites = !currentCityFavorite.length
+  const isEmptySportEventFavorites = !currentSportEventFavorite.length
+
 
   useEffect(() => {
     if (isEmptyCityFavorites) return
@@ -51,7 +64,7 @@ export const MainContent: FC = () => {
     setIsForecastMainLoading(true)
 
     delay(1000).then(async () => {
-      const forecast = await WeatherService.getForecast(favoriteCities[0])
+      const forecast = await WeatherService.getForecast(currentCityFavorite[0].city)
 
       setCurrentCity(forecast)
 
@@ -65,7 +78,7 @@ export const MainContent: FC = () => {
     setIsSportEventMainLoading(true)
 
     delay(1000).then(() => {
-      setCurrentSportEvent(favoriteSportsEvents[0])
+      setCurrentSportEvent(currentSportEventFavorite[0].sportEvent)
 
       setIsSportEventMainLoading(false)
     })
@@ -83,12 +96,14 @@ export const MainContent: FC = () => {
           <Loader />
         ) : (
           <SportEvents
-            currentSportEvent={currentSportEvent}
+            currentSportEvent={currentSportEvent!}
             isEmpty={isEmptySportEventFavorites}
           />
         )}
       </div>
       <Favorite
+        currentCityFavorite={isEmptyCityFavorites}
+        currentSportEventFavorite={isEmptySportEventFavorites}
         favoriteCities={favoriteCities}
         changeCurrentCity={changeCurrentCity}
         favoriteSportsEvents={favoriteSportsEvents}

@@ -409,6 +409,126 @@
       "firstName": "bogdan",
       "lastName": "asdfsdf",
       "id": 52
+    },
+    {
+      "email": "gadf@gmail.com",
+      "password": "$2a$10$UKVOmXCrWKthsz53OKUKaePwAI7mjOSoYdnvxQe02ujs2uMe.Afvu",
+      "phoneNumber": "123435123",
+      "firstName": "Tema",
+      "lastName": "dsafdsg",
+      "id": 53
+    },
+    {
+      "email": "maxxxxx@gmail.com",
+      "password": "$2a$10$zMruP6Go66eZarMJGW9dx.K51fyU5rNO65ST91joVFS8v/Wao6Ok6",
+      "phoneNumber": "1243242343",
+      "firstName": "max",
+      "lastName": "str",
+      "id": 54
+    },
+    {
+      "email": "valeraBaga@gmail.com",
+      "password": "$2a$10$MHXzoWLzLZuu59HUr7ksdO86W5xKOxjzPCE7ikZVmLKuLTdZkhXi6",
+      "phoneNumber": "1354678",
+      "firstName": "dfgdh",
+      "lastName": "asdhd",
+      "id": 55
+    },
+    {
+      "email": "asddfsdg@gmail.com",
+      "password": "$2a$10$9xf8y.TR6lq96Sx8X1xOq.nwawKHKhplw0bj9scwj6q4AYyOZZMN2",
+      "phoneNumber": "12345324",
+      "firstName": "adsgasdf",
+      "lastName": "adfasd",
+      "id": 56
+    },
+    {
+      "email": "sdgfsd@gmail.com",
+      "password": "$2a$10$jpLA9IBwOf4ci661QB6f6OCcUGYsvpp7lViAOLZJ4M49ho1sGmmme",
+      "phoneNumber": "123534",
+      "firstName": "asdf",
+      "lastName": "asdgd",
+      "id": 57
+    },
+    {
+      "email": "bagan@gmail.com",
+      "password": "$2a$10$kmHxJPsnUbCQOeiYPUna8eNPsWaD.s5iQ7.3LdqAg1dWl5cAUx45K",
+      "phoneNumber": "1234534",
+      "firstName": "adsf",
+      "lastName": "asdg",
+      "id": 58
+    },
+    {
+      "email": "adga@gmail.com",
+      "password": "$2a$10$4WWAkOYLp1H5iYTausbOquy3CJzrOQ/OO4iRizhfYbTWLfSEN8.Xq",
+      "phoneNumber": "1232252",
+      "firstName": "dasgad",
+      "lastName": "asdfd",
+      "id": 59
+    },
+    {
+      "email": "dasag@gmail.com",
+      "password": "$2a$10$tW4bW60E5HCvadla6bPzJO5fRpw6qxcq6PVs2V0KYfEzoTKIKWtHe",
+      "phoneNumber": "3124123",
+      "firstName": "asdf",
+      "lastName": "asdf",
+      "id": 60
+    },
+    {
+      "email": "iop@gmail.com",
+      "password": "$2a$10$Bp2BqrunijUPO.djrdQDSelcK6Se6EQx349g0ClvyJnYimTEAEOgG",
+      "phoneNumber": "368765",
+      "firstName": "gsgdjkfgh",
+      "lastName": "asdhjkds",
+      "id": 61
+    },
+    {
+      "email": "aiok@gmail.com",
+      "password": "$2a$10$eH.cYaLb0gdjJhuTEvzG5uXI9ud6yw5h5f.XA91WfRMQGW/P5ENmq",
+      "phoneNumber": "900958",
+      "firstName": "Sasha",
+      "lastName": "fsgdf",
+      "id": 62
+    },
+    {
+      "email": "valerabagi@gmail.com",
+      "password": "$2a$10$gFgbuqWMKzW510QbxvIv1OZFzYhyeCvC69ZruEZVWjs6xnT6eiFPy",
+      "phoneNumber": "353124",
+      "firstName": "oleg",
+      "lastName": "asdg",
+      "id": 63
+    },
+    {
+      "email": "p@kdf.com",
+      "password": "$2a$10$RZGK5JdWyVvVAmBV3uV/Cuj1Y9ydvnKIP9cn835Jjk3A0jWwIYfoW",
+      "phoneNumber": "32152624",
+      "firstName": "asdga",
+      "lastName": "asdgag",
+      "id": 64
+    },
+    {
+      "email": "mozolovskayaangel@gmail.com",
+      "password": "$2a$10$vvwJysoprAo3os.tfMEz.u0jjnI.hvGuU8YeCGJ/ZUfmPlWE.2IO2",
+      "phoneNumber": "0668998799",
+      "firstName": "Angelina",
+      "lastName": "Mozolovskaya",
+      "id": 65
+    },
+    {
+      "email": "vatr@gmail.com",
+      "password": "$2a$10$rGs66rkyQULt6YG7.I8uhuIjbzCeVyF8ttabwtBMamjNbbevC5U.W",
+      "phoneNumber": "123453241",
+      "firstName": "dasf",
+      "lastName": "asdf",
+      "id": 66
+    },
+    {
+      "email": "ba@gmail.com",
+      "password": "$2a$10$ZfAapj.Hs86kPHU.6gKM5O0TT6BjXQtZ3HE6lHbwDl3xIUqjdN8i6",
+      "phoneNumber": "5476545",
+      "firstName": "asdgsdah",
+      "lastName": "dsagsad",
+      "id": 67
     }
   ]
 }

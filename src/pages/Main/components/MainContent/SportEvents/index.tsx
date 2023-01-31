@@ -3,13 +3,17 @@ import { FC } from 'react'
 
 import { SportEvent } from './SportEvent'
 import { sportEventPreview } from '../../../constants/sportEventPreviews'
+import { IFootball } from '../../../../../types/city/sportEvents'
 
 interface IProps {
   currentSportEvent: any
   isEmpty: boolean
 }
 
+
+
 export const SportEvents: FC<IProps> = ({ currentSportEvent, isEmpty }) => {
+  
   const { t } = useTranslation()
 
   const SportEventList = sportEventPreview.map(({ title, apiKey }) => (

@@ -1,5 +1,5 @@
-import { useContext } from 'react'
 import { Formik, Form } from 'formik'
+import { useContext } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,23 +7,34 @@ import { inputs } from './constants/inputs'
 import { ROUTES } from '../../constants/routes/routes'
 import { FooterAuth } from '../../components/FooterAuth'
 import { logInUserAsync } from '../../redux/auth/actions'
-import { getInputsList } from '../../utils/auth/UI/getInputsList'
+import { GetInputsList } from '../../utils/auth/UI/GetInputsList'
 import { MessageModalContext } from '../../context/messageModalContext'
 import { generateInitialValues } from '../../utils/generateInitialFormikValues'
 import { signInValidationSchema } from '../../utils/auth/signInValidationSchema'
+import { IError } from '../../types/errorType'
 
+
+
+interface IProps {
+  email: string;
+  password: string;
+}
 
 export const SignIn = () => {
   const openModal = useContext(MessageModalContext)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const onSubmit = async (values: any) => {
+  const onSubmit = async (values: IProps) => {
+    
     try {
       await dispatch(logInUserAsync(values))
       navigate(ROUTES.MAIN)
-    } catch (error: any) {
-      openModal(error.message, true)
+    } catch (error) {
+      console.dir(error);
+      
+      const typedError = error as IError
+      openModal(typedError.message, true)
     }
   }
 
@@ -38,7 +49,8 @@ export const SignIn = () => {
         >
           {({ errors, touched, values, handleChange }) => (
             <Form>
-              {getInputsList(inputs, values, errors, touched, handleChange)}
+              <GetInputsList inputs={inputs} errors={errors} touched={touched} handleChange={handleChange} values={values}/>
+              {/* {getInputsList(inputs, values, errors, touched, handleChange)} */}
               <FooterAuth linkName={'Register'} linkRoute={ROUTES.REGISTER} />
             </Form>
           )}
@@ -47,3 +59,5 @@ export const SignIn = () => {
     </div>
   )
 }
+
+// errors={errors} touched={touched} handleChange={handleChange} values={values}

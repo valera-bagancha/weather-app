@@ -17,10 +17,10 @@ export const registerValidationSchema = Yup.object().shape({
   ),
   [firstName.id]: Yup.string()
     .min(2, 'Too Short!')
-    .max(10, 'Too Long!')
+    .max(15, 'Too Long!')
     .required('Required'),
   [lastName.id]: Yup.string()
     .min(2, 'Too Short!')
-    .max(10, 'Too Long!')
+    .max(15, 'Too Long!')
     .required('Required'),
 })

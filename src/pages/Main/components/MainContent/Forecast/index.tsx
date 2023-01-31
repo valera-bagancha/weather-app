@@ -1,23 +1,26 @@
 import { useTranslation } from 'react-i18next'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 
 import { ForecastContent } from './components/ForecastContent'
 import { ForecastHead } from './components/ForecastHead'
+import { UnitContext } from '../../../../../context/unitContext'
+import { ICity } from '../../../../../types/city/forecast'
 
 interface IProps {
   isEmpty: boolean
-  currentCity: any
+  currentCity: ICity | null;
 }
 
 export const Forecast: FC<IProps> = ({ isEmpty, currentCity }) => {
   const { t } = useTranslation()
+  const { unit } = useContext(UnitContext)
 
   const current = currentCity?.current
   const location = currentCity?.location
 
   const day = currentCity?.forecast.forecastday[0].day
-  const maxTemp = day?.maxtemp_c || 0
-  const minTemp = day?.mintemp_c || 0
+  const maxTemp = (unit ? day?.maxtemp_f : day?.maxtemp_c) || 0
+  const minTemp = (unit ? day?.mintemp_f : day?.mintemp_c) || 0
 
   const tempPreview = Math.round(current?.temp_c || 0)
   const forecastTitle = location?.name
@@ -29,12 +32,12 @@ export const Forecast: FC<IProps> = ({ isEmpty, currentCity }) => {
       ) : (
         <>
           <ForecastHead
-            forecastTitle={forecastTitle}
+            forecastTitle={forecastTitle!}
             tempPreview={tempPreview}
             maxTemp={maxTemp}
             minTemp={minTemp}
           />
-          <ForecastContent current={current} />
+          <ForecastContent current={current!} />
         </>
       )}
     </div>

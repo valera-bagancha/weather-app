@@ -1,4 +1,5 @@
-export const forecastPreviews = [
+export const forecastPreviews = (unit: boolean) => 
+  [
   {
     imgPreviewContent: 'cloud',
     title: 'Cloud',
@@ -7,12 +8,12 @@ export const forecastPreviews = [
   {
     imgPreviewContent: 'air',
     title: 'Wind',
-    apiKey: 'wind_kph',
+    apiKey: `${unit ? 'wind_mph' : 'wind_kph'}`,
   },
   {
     imgPreviewContent: 'compress',
     title: 'Pressure',
-    apiKey: 'pressure_mb',
+    apiKey: `${unit ? 'pressure_in' : 'pressure_mb'}`,
   },
   {
     imgPreviewContent: 'infrared',
@@ -25,3 +26,4 @@ export const forecastPreviews = [
     apiKey: 'humidity',
   },
 ]
+// unit === 'fdsf' ?uv' : 'dfs

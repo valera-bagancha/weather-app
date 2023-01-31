@@ -1,10 +1,16 @@
 import { FC } from 'react'
 
-export const CityFavorite: FC<any> = ({
+interface IProps {
+  city: string;
+  changeCurrentCity: (param: string) => void
+  deleteCurrentCity: (param: string) => void
+}
+
+export const CityFavorite: FC<IProps> = ({
   city,
   changeCurrentCity,
   deleteCurrentCity,
-}) => {
+}) => {  
   const onCityDelete = () => deleteCurrentCity(city)
 
   const onCityChange = () => changeCurrentCity(city)

@@ -36,7 +36,6 @@ export interface IHour {
   gust_mph: number;
   gust_kph: number;
   uv: number;
-  [key: string]: any
 }
 
 export interface IForecastDay {
@@ -123,4 +122,3 @@ export interface ICity {
    forecastday: IForecastDay[] 
   };
 }
-

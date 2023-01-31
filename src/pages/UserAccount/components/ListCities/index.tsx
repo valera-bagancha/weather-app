@@ -1,13 +1,13 @@
 import { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { ROUTES } from '../../../../constants/routes/routes'
 
-// export interface IProps {
-//   city: string
-// }
+export interface IProps {
+  city: string;
+  navigateForecast: (city: string) => void;
+  deleteCurrentCity: (city: string) => void
+}
 
-export const ListCities = ({city, navigateForecast, deleteCurrentCity}: any) => {
-
+export const ListCities: FC<IProps> = ({city, navigateForecast, deleteCurrentCity}) => {
+  
   return (
     <div className="city-card">
       <div onClick={() => {navigateForecast(city)}}>{city}</div>
