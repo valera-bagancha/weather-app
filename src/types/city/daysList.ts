@@ -38,5 +38,4 @@ export interface IDaysList {
     uv?: number;
   };
   hour?: IHour[]
-  [key: string]: any
 }

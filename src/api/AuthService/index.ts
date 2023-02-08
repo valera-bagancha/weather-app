@@ -1,11 +1,14 @@
 import  axios from 'axios'
 import { URLS } from '../../constants/api/urls'
-import { ILogIn, IRegister } from '../../redux/auth/types'
+import { ILogIn } from '../../redux/auth/types'
 import { IErrorMessage } from '../../types/errorType';
 import { IUserData } from '../../types/userData/user';
 
+interface IValues {
+  [key: string]: string
+}
 class AuthService {
-  async registerUser(user: IRegister): Promise<IUserData> {
+  async registerUser(user: IValues): Promise<IUserData> {
     try {
       const { data } = await axios.post<IUserData>(URLS.register, user)
       

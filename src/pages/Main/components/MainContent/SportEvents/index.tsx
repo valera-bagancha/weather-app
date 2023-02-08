@@ -4,16 +4,18 @@ import { FC } from 'react'
 import { SportEvent } from './SportEvent'
 import { sportEventPreview } from '../../../constants/sportEventPreviews'
 import { IFootball } from '../../../../../types/city/sportEvents'
+import { isEmptyFavoriteSportEventsSelector } from '../../../../../redux/favorite/selectors'
+import { useSelector } from 'react-redux'
 
 interface IProps {
-  currentSportEvent: any
-  isEmpty: boolean
+  currentSportEvent: IFootball
 }
 
+export const SportEvents: FC<IProps> = ({ currentSportEvent }) => {
+  const isEmptyFavoriteSportEvents = useSelector(
+    isEmptyFavoriteSportEventsSelector
+  )
 
-
-export const SportEvents: FC<IProps> = ({ currentSportEvent, isEmpty }) => {
-  
   const { t } = useTranslation()
 
   const SportEventList = sportEventPreview.map(({ title, apiKey }) => (
@@ -26,7 +28,7 @@ export const SportEvents: FC<IProps> = ({ currentSportEvent, isEmpty }) => {
 
   return (
     <div className="sport-event">
-      {isEmpty ? (
+      {isEmptyFavoriteSportEvents ? (
         <div className="empty-main-forecast">{t('empty-field')}</div>
       ) : (
         <>

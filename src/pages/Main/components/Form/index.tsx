@@ -4,61 +4,42 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from '../../../../constants/routes/routes'
 import { historySearchCity } from '../../../../redux/searchHistory/selectors'
-import { userID } from '../../../../redux/auth/selectors'
+import { userIdSelector } from '../../../../redux/auth/selectors'
+import { IHistory } from '../../../../types/history'
 
-type Handler = (e: any) => void
-
-interface IProps {
-  value: any
-  setValue: any
-  changeHandler: Handler
-  searchForecast: Handler
-}
-
-// interface IPersonalUserHistory {
-//   history: {
-//     city: string;
-//     idUser: number;
-//   }
-// }
-
-export const Form: FC<IProps> = ({
-  value,
-  changeHandler,
-  searchForecast,
-  setValue,
-}) => {
-  
+export const Form = () => {
+  const [value, setValue] = useState('')
   const [autocomplete, setAutocomplete] = useState(false)
   const { t } = useTranslation()
   const navigate = useNavigate()
 
   const history = useSelector(historySearchCity)
-  const currentUser = useSelector(userID)
+  const currentUser = useSelector(userIdSelector)
   
   const filteredCity = useMemo(() => {
-    const currentHistoryUser = history.filter((user: any) => currentUser === user?.idUser)  
-    return currentHistoryUser.filter((city: any) => value.toLowerCase() === city.city.slice(0, value.length).toLowerCase() )
+    const currentHistoryUser = history.filter((user: IHistory) => currentUser === user?.userId)  
+    return currentHistoryUser.filter((city: IHistory) => value.toLowerCase() === city.city.slice(0, value.length).toLowerCase())
   }, [history, currentUser, value])
 
-  // const filteredCity = useMemo(() => {
-  //   return history.filter((city: any) => value.toLowerCase() === city.city.slice(0, value.length).toLowerCase());
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
 
-  // }, [history, value])
 
-  const itemClickHandler = (e: any ) => { // SyntheticEvent<HTMLLIElement>
-    // const { target } = e
-    // if (target.textContent) {
-    //   setValue(target.textContent);     
-    // }     
-    // setAutocomplete(true) 
+  const searchForecast = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.code !== 'Enter') return
 
-    // if (!(e.target instanceof HTMLElement)) return
-    // setValue((e.target as HTMLElement).textContent)
+    e.preventDefault()
+    navigate(`${ROUTES.CITY}/${value.toLowerCase()}`)
+  }
 
-    // setAutocomplete(true)
+  const itemClickHandler = (e: SyntheticEvent<HTMLLIElement> ) => { 
 
-    setValue(e.target.textContent)
+    const target = e.target as HTMLElement;
+
+    const textContent = target.textContent;
+
+    if (!textContent) return
+
+    setValue(textContent)
 
     setAutocomplete(true)
   }
@@ -81,7 +62,7 @@ export const Form: FC<IProps> = ({
         <ul className="autocomplete">
           {value ? (
             <>
-              {filteredCity.map((city: any) => (
+              {filteredCity.map((city: IHistory) => (
                 <li
                   key={city.city}
                   className="autocomplete-item"

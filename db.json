@@ -529,6 +529,31 @@
       "firstName": "asdgsdah",
       "lastName": "dsagsad",
       "id": 67
+    },
+    {
+      "email": "uifhk@gmail.com",
+      "password": "$2a$10$mfr7eJWBPiiHxnV/OJHp/u5l2Scn4vJY8lAZHWYsBW4Yeg5V7evlO",
+      "phoneNumber": "13263423",
+      "firstName": "fhkd",
+      "lastName": "gfjd",
+      "id": 68
+    },
+    {
+      "email": "bavas@gmail.com",
+      "password": "$2a$10$WbkRwlt5fZfbSVvCL4A9Cui/M2544rRmJVtIwLm16j.G1Rr5akZuG",
+      "phoneNumber": "123621",
+      "firstName": "sda",
+      "lastName": "dsah",
+      "id": 69
+    },
+    {
+      "email": "fsd@gmail.ocom",
+      "password": "$2a$10$4JuJQZ9Z2Anfdadaf9DuNeJAPT5/5JfI43Lgxn9vt5n9F7W7qjkLW",
+      "phoneNumber": "123534",
+      "firstName": "sadhs",
+      "lastName": "sdag",
+      "confirmPassword": "12345",
+      "id": 70
     }
   ]
 }

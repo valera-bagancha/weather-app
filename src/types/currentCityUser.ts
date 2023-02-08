@@ -1,4 +1,4 @@
 export interface ICurrentCityUser {
-  idUser: number;
+  userId: number;
   city: string
 }

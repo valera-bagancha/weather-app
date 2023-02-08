@@ -1,3 +1,3 @@
 import { IState } from '../auth/types'
 
-export const historySearchCity = (state: any) => state.history.history
+export const historySearchCity = (state: IState) => state.history.history

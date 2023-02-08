@@ -12,27 +12,20 @@ import { MessageModalContext } from '../../context/messageModalContext'
 import { generateInitialValues } from '../../utils/generateInitialFormikValues'
 import { signInValidationSchema } from '../../utils/auth/signInValidationSchema'
 import { IError } from '../../types/errorType'
-
-
-
-interface IProps {
-  email: string;
-  password: string;
-}
+import { ILogIn } from '../../redux/auth/types'
 
 export const SignIn = () => {
   const openModal = useContext(MessageModalContext)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const onSubmit = async (values: IProps) => {
-    
+  const onSubmit = async (values: ILogIn) => {
     try {
       await dispatch(logInUserAsync(values))
       navigate(ROUTES.MAIN)
     } catch (error) {
-      console.dir(error);
-      
+      console.dir(error)
+
       const typedError = error as IError
       openModal(typedError.message, true)
     }
@@ -49,7 +42,13 @@ export const SignIn = () => {
         >
           {({ errors, touched, values, handleChange }) => (
             <Form>
-              <GetInputsList inputs={inputs} errors={errors} touched={touched} handleChange={handleChange} values={values}/>
+              <GetInputsList
+                inputs={inputs}
+                errors={errors}
+                touched={touched}
+                handleChange={handleChange}
+                values={values}
+              />
               {/* {getInputsList(inputs, values, errors, touched, handleChange)} */}
               <FooterAuth linkName={'Register'} linkRoute={ROUTES.REGISTER} />
             </Form>

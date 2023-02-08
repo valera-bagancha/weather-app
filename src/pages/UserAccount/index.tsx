@@ -2,24 +2,22 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useContext } from 'react'
 
-import { favoriteCityDataSelector } from '../../redux/favorite/selectors'
+import { isEmptyFavoriteCitiesSelector } from '../../redux/favorite/selectors'
 import { CardFavoriteCites } from './components/CardFavoriteCities'
-import { firstNameSelector, userID } from '../../redux/auth/selectors'
+import { firstNameSelector } from '../../redux/auth/selectors'
 import { ToggleSwitch } from '../../components/TogglesSwitch'
 import { ThemeContext } from '../../context/themeContext'
 import { UnitContext } from '../../context/unitContext'
 import { Header } from './components/Header'
 
 export const UserAccount = () => {
-  const favoritesCities = useSelector(favoriteCityDataSelector)
   const { isDarkMode, setIsDarkMode } = useContext(ThemeContext)
   const { unit, setUnit } = useContext(UnitContext)
-  const firstName = useSelector(firstNameSelector)
-  const userId = useSelector(userID)
-  
-  const { t } = useTranslation()
 
-  const currentCityFavorite = favoritesCities.filter((idUser: any) => userId == idUser.idUser )
+  const isEmptyFavoriteCities = useSelector(isEmptyFavoriteCitiesSelector)
+  const firstName = useSelector(firstNameSelector)
+
+  const { t } = useTranslation()
 
   const themeChange = () => setIsDarkMode(!isDarkMode)
   const unitChange = () => setUnit(!unit)
@@ -41,7 +39,7 @@ export const UserAccount = () => {
           <div className="favorite-cities-head">
             {t('account.favoriteCities')}
           </div>
-          {currentCityFavorite.length == 0 ? (
+          {isEmptyFavoriteCities ? (
             <div className="text-for-empty-favorites">{t('empty-field')}</div>
           ) : (
             <CardFavoriteCites />

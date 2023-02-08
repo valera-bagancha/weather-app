@@ -1,68 +1,70 @@
+import { IFootball } from '../../types/city/sportEvents'
+
 export enum ActionTypes {
   SET_AUTH_DATA = 'SET_AUTH_DATA',
   SET_USER = 'SET_AUTH_USER',
   SIGN_OUT = 'SIGN_OUT',
 }
 
-export interface IState {
-  auth:{
-  accessToken: string | null;
-  user: {
-    email: string;
-    firstName: string;
-    id: number;
-    lastName: string;
-    phoneNumber: string;
-  } | null
-};
-  favorites: {
-    cities: string[];
-    sportsEvents: {
-      country: string;
-      match: string;
-      region: string;
-      stadium: string;
-      start: string;
-      tournament: string;
-    }[]
-    // [key: string]: any
-  };
-  history: {
-    history: string[]
-  };
+export interface ISportEvent {
+  userId: number
+  sportEvent: IFootball
 }
-
+export interface IState {
+  auth: {
+    accessToken: string | null
+    user: {
+      email: string
+      firstName: string
+      id: number
+      lastName: string
+      phoneNumber: string
+    } | null
+  }
+  favorites: {
+    cities: {
+      userId: number
+      city: string
+    }[]
+    sportsEvents: ISportEvent[]
+  }
+  history: {
+    history: {
+      userId: number
+      city: string
+    }[]
+  }
+}
 export interface IAuthState {
-  accessToken: string | null;
+  accessToken: string | null
   user: {
-    email: string;
-    firstName: string;
-    id: number;
-    lastName: string;
-    phoneNumber: string;
-  } | null 
+    email: string
+    firstName: string
+    id: number
+    lastName: string
+    phoneNumber: string
+  } | null
 }
 export interface IRegister {
-  email: string;
-  firstName: string;
-  id: number;
-  lastName: string;
-  phoneNumber: string;
+  email: string
+  firstName: string
+  id: string
+  lastName: string
+  phoneNumber: string
 }
 
 export interface ILogIn {
-  email: string;
-  password: string
+  [key: string]: string
 }
 
 interface ISetAuthData {
-  type: ActionTypes.SET_AUTH_DATA;
-  payload: IAuthState;
+  type: ActionTypes.SET_AUTH_DATA
+  payload: IAuthState
 }
 
 interface ISignOut {
-  type: ActionTypes.SIGN_OUT;
-  payload: undefined;
+  type: ActionTypes.SIGN_OUT
+  payload: undefined
 }
 
 export type Action = ISetAuthData | ISignOut

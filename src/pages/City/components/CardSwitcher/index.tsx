@@ -5,7 +5,7 @@ import { UnitContext } from '../../../../context/unitContext'
 
 interface IProps {
   date_epoch: number;
-  currentDay: number | null | undefined;
+  currentDay: number;
   theDay: string;
   theDate: string;
   srcImage: string;

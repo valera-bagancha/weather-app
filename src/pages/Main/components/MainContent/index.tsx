@@ -7,30 +7,33 @@ import { ICity } from '../../../.././types/city/forecast'
 import { Loader } from '../../../../components/Loader'
 import { delay } from '../../../../utils/delay'
 import {
-  favoriteCityDataSelector,
-  favoriteSportEventDataSelector,
+  favoriteCitiesByUserIdSelector,
+  favoriteSportEventsByUserIdSelector,
+  isEmptyFavoriteCitiesSelector,
+  isEmptyFavoriteSportEventsSelector,
 } from '../../../../redux/favorite/selectors'
 import { SportEvents } from './SportEvents'
 import { Favorite } from '../Favorite'
 import { Forecast } from './Forecast'
-import { userID } from '../../../../redux/auth/selectors'
-import { ICurrentCityUser } from '../../../../types/currentCityUser'
-import { ICurrentSportEventUser } from '../../../../types/currentSportEventUser'
-
 
 export const MainContent: FC = () => {
-  const [currentCity, setCurrentCity] = useState<ICity | null>(null)  
-  const [currentSportEvent, setCurrentSportEvent] = useState<IFootball | null>(null)
+  const [currentCity, setCurrentCity] = useState<ICity | null>(null)
+  const [currentSportEvent, setCurrentSportEvent] = useState<IFootball | null>(
+    null
+  )
   const [isForecastMainLoading, setIsForecastMainLoading] = useState(false)
   const [isSportEventMainLoading, setIsSportEventMainLoading] = useState(false)
 
-  const favoriteSportsEvents = useSelector(favoriteSportEventDataSelector)
-  const favoriteCities = useSelector(favoriteCityDataSelector)
-  const userId = useSelector(userID)
-
+  const favoriteCitiesByUserId = useSelector(favoriteCitiesByUserIdSelector)
+  const isEmptyFavoriteCities = useSelector(isEmptyFavoriteCitiesSelector)
+  const favoriteSportEventsByUserId = useSelector(
+    favoriteSportEventsByUserIdSelector
+  )
+  const isEmptyFavoriteSportEvents = useSelector(
+    isEmptyFavoriteSportEventsSelector
+  )
 
   const changeCurrentSportEvent = useCallback(async (param: IFootball) => {
-    
     setIsSportEventMainLoading(true)
     await delay(1000)
 
@@ -40,7 +43,6 @@ export const MainContent: FC = () => {
   }, [])
 
   const changeCurrentCity = useCallback(async (param: string) => {
-    
     setIsForecastMainLoading(true)
     await delay(1000)
 
@@ -51,62 +53,50 @@ export const MainContent: FC = () => {
     setIsForecastMainLoading(false)
   }, [])
 
-  const currentCityFavorite = favoriteCities.filter((idUser: ICurrentCityUser) => userId == idUser.idUser)
-  const currentSportEventFavorite = favoriteSportsEvents.filter((idUser: ICurrentSportEventUser) => userId == idUser.idUser) 
-
-  const isEmptyCityFavorites = !currentCityFavorite.length
-  const isEmptySportEventFavorites = !currentSportEventFavorite.length
-
-
   useEffect(() => {
-    if (isEmptyCityFavorites) return
+    if (isEmptyFavoriteCities) return
 
     setIsForecastMainLoading(true)
 
     delay(1000).then(async () => {
-      const forecast = await WeatherService.getForecast(currentCityFavorite[0].city)
+      const forecast = await WeatherService.getForecast(
+        favoriteCitiesByUserId[0].city
+      )
 
       setCurrentCity(forecast)
 
       setIsForecastMainLoading(false)
     })
-  }, [favoriteCities])
+  }, [favoriteCitiesByUserId, isEmptyFavoriteCities])
 
   useEffect(() => {
-    if (isEmptySportEventFavorites) return
+    if (isEmptyFavoriteSportEvents) return
 
     setIsSportEventMainLoading(true)
 
     delay(1000).then(() => {
-      setCurrentSportEvent(currentSportEventFavorite[0].sportEvent)
+      setCurrentSportEvent(favoriteSportEventsByUserId[0].sportEvent)
 
       setIsSportEventMainLoading(false)
     })
-  }, [favoriteSportsEvents])
+  }, [favoriteSportEventsByUserId, isEmptyFavoriteSportEvents])
 
   return (
     <div className="container-main-content">
       <div className="box">
         {isForecastMainLoading ? (
-          <Loader />
+          <Loader className='color-white'/>
         ) : (
-          <Forecast currentCity={currentCity} isEmpty={isEmptyCityFavorites} />
+          <Forecast currentCity={currentCity} />
         )}
         {isSportEventMainLoading ? (
-          <Loader />
+          <Loader className='color-white'/>
         ) : (
-          <SportEvents
-            currentSportEvent={currentSportEvent!}
-            isEmpty={isEmptySportEventFavorites}
-          />
+          <SportEvents currentSportEvent={currentSportEvent!} />
         )}
       </div>
       <Favorite
-        currentCityFavorite={isEmptyCityFavorites}
-        currentSportEventFavorite={isEmptySportEventFavorites}
-        favoriteCities={favoriteCities}
         changeCurrentCity={changeCurrentCity}
-        favoriteSportsEvents={favoriteSportsEvents}
         changeCurrentSportEvent={changeCurrentSportEvent}
       />
     </div>

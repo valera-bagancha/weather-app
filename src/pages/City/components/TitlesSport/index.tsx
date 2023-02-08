@@ -1,7 +1,11 @@
 import { IFootball } from '../../../../types/city/sportEvents';
 import { CardSport } from '../CardSport'
 
-export const TitlesSport= ({ sportEvent }: IFootball) => {  
+interface IProps {
+  sportEvent: IFootball[]
+}
+
+export const TitlesSport= ({sportEvent}: IProps) => {  
   const sportList = sportEvent.map((sportEvent: IFootball) => (
     <CardSport key={sportEvent.match} sportEvent={sportEvent} />
   ))

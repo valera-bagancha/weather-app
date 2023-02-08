@@ -1,4 +1,5 @@
-import { ISportEvents } from '../../types/city/sportEvents'
+import { ISport, ISportEvents } from '../../types/city/sportEvents'
+import { IHistory } from '../../types/history'
 
 export enum ActionTypes {
   ADD_FAVORITE_CITY = 'ADD_FAVORITE_CITY',
@@ -7,9 +8,26 @@ export enum ActionTypes {
   DELETE_FAVORITE_SPORT_EVENT = 'DELETE_FAVORITE_SPORT_EVENT',
 }
 
+interface ICity {
+  userId: number 
+  value: string
+}
+
+// interface ISport {
+//     userId: number 
+//     sportEvent: {
+//       country: string;
+//       match: string;
+//       region: string;
+//       stadium: string;
+//       start: string;
+//       tournament: string;
+//     }
+// }
+
 export interface IStateSport {
-  cities: any
-  sportsEvents: ISportEvents[] 
+  cities: IHistory[]
+  sportsEvents: ISport[] 
 }
 interface IAddFavoriteCity {
   type: ActionTypes.ADD_FAVORITE_CITY
@@ -25,7 +43,7 @@ interface IDeleteFavoriteItem {
   type:
     | ActionTypes.DELETE_FAVORITE_CITY
     | ActionTypes.DELETE_FAVORITE_SPORT_EVENT
-  payload: any
+  payload: ICity
 }
 
 export type Action =

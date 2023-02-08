@@ -14,7 +14,7 @@ import { delay } from '../../utils/delay'
 import sportService from '../../api/SportService'
 import weatherService from '../../api/WeatherService'
 import yesterdayWeatherService from '../../api/YesterdayWeatherService'
-import { favoriteCityDataSelector } from '../../redux/favorite/selectors'
+import { favoriteCitiesByUserIdSelector } from '../../redux/favorite/selectors'
 import DayBeforeYesterdayWeatherService from '../../api/DayBeforeYesterdayWeatherService'
 import {
   addFavoriteCity,
@@ -27,8 +27,9 @@ import { IPastDays } from '../../types/city/yesterdayDate'
 import { historySearchCity } from '../../redux/searchHistory/selectors'
 import { searHistory } from '../../redux/searchHistory/actionCreators'
 import { IError } from '../../types/errorType'
-import { userID } from '../../redux/auth/selectors'
+import { userIdSelector } from '../../redux/auth/selectors'
 import { ICurrentCityUser } from '../../types/currentCityUser'
+import { forecastBackground } from './constants/forecastBG'
 
 export const DataContext = createContext([] as IHour[])
 
@@ -42,20 +43,38 @@ export const City = () => {
   const [currentDay, setCurrentDay] = useState<number | null | undefined>(null)
   const [isForecastLoading, setIsForecastLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-  const favoritesCities = useSelector(favoriteCityDataSelector)
-  const idUser = useSelector(userID)
+  // const favoritesCities = useSelector(favoriteCityDataSelector)
+  const favoriteCitiesByUserId = useSelector(favoriteCitiesByUserIdSelector)
+  const userId = useSelector(userIdSelector)
 
-    const sportEventValue = sportEvents?.football || []
+  const sportEventValue = sportEvents?.football || []
   const yesterdayNum = yesterdayDate?.forecast.forecastday[0]
   const dayBeforeYesterdayNum = dayBeforeYesterdayDate?.forecast?.forecastday[0]
   const nextDays = forecast?.forecast.forecastday || []
 
   const cityName = forecast?.location?.name || ''
-  const currentCityFavorite = favoritesCities.filter(
-    (id: ICurrentCityUser) => idUser == id.idUser)
+  // const currentCityFavorite = favoritesCities.filter(
+  //   (id: ICurrentCityUser) => userId == id.userId
+  // )
 
-  const isCurrentCityFavorite = currentCityFavorite.some(
-    ({ city }: ICurrentCityUser) => city.toLowerCase() === cityName.toLowerCase())
+  const isCurrentCityFavorite = favoriteCitiesByUserId.some(
+    ({ city }: ICurrentCityUser) =>
+      city.toLowerCase() === cityName.toLowerCase()
+  )
+
+  const forecastCondition = (forecast: ICity | null) => {
+    if (!forecast) return
+    const text = forecast?.current.condition.text.toLowerCase()
+    return text
+      .split(' ')
+      .map((word, index) =>
+        index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+      )
+      .join('')
+  }
+  
+  const currentForecastCondition =
+    forecastCondition(forecast) || forecastBackground.default
 
   const daysList: IForecastDay[] =
     !dayBeforeYesterdayNum || !yesterdayNum
@@ -74,12 +93,14 @@ export const City = () => {
   const addFavoriteCityHandler = useCallback(() => {
     if (!cityName) return null
 
-    if (isCurrentCityFavorite) {
-      return dispatch(deleteFavoriteCity(cityName, idUser))
+    if (isCurrentCityFavorite && userId) {
+      return dispatch(deleteFavoriteCity(cityName, userId))
     }
 
-    return dispatch(addFavoriteCity(cityName, idUser))
-  }, [cityName, isCurrentCityFavorite, idUser])
+    if (!userId) return null
+
+    return dispatch(addFavoriteCity(cityName, userId))
+  }, [cityName, isCurrentCityFavorite, userId])
 
   const changeCurrentDay = useCallback(
     (param: number) => setCurrentDay(param),
@@ -91,30 +112,22 @@ export const City = () => {
   )
 
   const isHistoryIncludes = history.some(
-    (history: ICurrentCityUser) => 
+    (history: ICurrentCityUser) =>
       history.city.toLowerCase() === cityName.toLowerCase() &&
-      history.idUser === idUser
+      history.userId === userId
   )
-
 
   useEffect(() => {
     if (!cityName) return
-    if (!isHistoryIncludes && !errorMessage && idUser !== undefined) {
-      dispatch(searHistory(cityName, idUser))
+    if (!isHistoryIncludes && !errorMessage && userId !== undefined) {
+      dispatch(searHistory(cityName, userId))
     }
-  }, [cityName, errorMessage, idUser])
-
-  // useEffect(() => {
-  //   if (!cityName) return
-  //   if (!history.city.includes(cityName) && !errorMessage && idUser !== undefined) {
-  //     dispatch(searHistory(cityName, idUser))
-  //   }
-  // }, [cityName, errorMessage, idUser])
+  }, [cityName, errorMessage, userId])
 
   useEffect(() => {
     setCurrentDay(forecast?.forecast.forecastday[0].date_epoch)
   }, [forecast])
-
+  
   useEffect(() => {
     if (!id) return
 
@@ -160,8 +173,21 @@ export const City = () => {
   return (
     <DataContext.Provider value={currentDayData?.hour || []}>
       <div className="app-city">
+        <div className="video-box-city">
+          <video
+            className="video-city"
+            autoPlay
+            muted
+            loop
+            src={forecastBackground[currentForecastCondition]}
+          ></video>
+        </div>
+        <div className='one-x-bet'>
+          <img src="https://offside.by/wp-content/uploads/2020/04/1xBet-Logo.png" alt="" />
+          <img src="https://offside.by/wp-content/uploads/2020/04/1xBet-Logo.png" alt="" />
+        </div>
         {isForecastLoading ? (
-          <Loader />
+          <Loader className='lds-ring'/>
         ) : (
           <>
             {!errorMessage ? (

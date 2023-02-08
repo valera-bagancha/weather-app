@@ -1,5 +1,9 @@
-export const Loader = () => (
-  <div className="lds-ring">
+interface IProps {
+  className: string
+}
+
+export const Loader = ({className}: IProps) => (
+  <div className={className}>
     <div></div>
     <div></div>
     <div></div>

@@ -1,5 +1,5 @@
 export interface ICurrentSportEventUser {
-  idUser: number;
+  userId: number;
   sportEvent: {
     country: string
     match: string

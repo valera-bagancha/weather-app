@@ -1,11 +1,14 @@
 import { Dispatch } from 'redux'
 import AuthService from '../../api/AuthService'
 import { setAuthData } from './actionCreators'
-import { ILogIn, IRegister } from './types'
+import { ILogIn } from './types'
 
+interface IValues {
+  [key: string]: string
+}
 
 export const registerUserAsync =
-  (userParam: IRegister) =>
+  (userParam: IValues) =>
   async (dispatch: Dispatch): Promise<void> => {
     
     const user = await AuthService.registerUser(userParam)

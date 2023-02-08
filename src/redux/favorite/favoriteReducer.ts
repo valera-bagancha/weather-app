@@ -1,9 +1,21 @@
 import { Action, ActionTypes, IStateSport } from './types'
-import { IFootball } from '../../types/city/sportEvents'
+
 
 const initialState = {
   cities: [],
   sportsEvents: [],
+}
+
+interface ISport {
+    userId: number;
+    sportEvent: {
+      country: string;
+      match: string;
+      region: string;
+      stadium: string;
+      start: string;
+      tournament: string;
+    }
 }
 
 export const favoriteReducer = (
@@ -27,23 +39,19 @@ export const favoriteReducer = (
       return {
         ...state,
         cities: state.cities.filter(
-          ({ city, idUser }: any) =>
-            city !== payload.city || idUser !== payload.idUser
+          ({ city, userId }) =>
+            city !== payload.value || userId !== payload.userId
         ),
       }
 
     case ActionTypes.DELETE_FAVORITE_SPORT_EVENT:
       return {
         ...state,
-        sportsEvents: state.sportsEvents.filter(({ sportEvent, idUser }: any) =>
-        sportEvent.match !== payload.match || idUser !== payload.idUser),
+        sportsEvents: state.sportsEvents.filter(({ sportEvent, userId }) =>           
+          sportEvent.match !== payload.value || userId !== payload.userId)
       }
 
     default:
       return state
   }
 }
-// (sportEvent: IFootball) => sportEvent?.match !== payload
-
-// ({ sportEvent, idUser }: any) =>
-// sportEvent.match !== payload.sportEvent.match || idUser !== payload.idUser

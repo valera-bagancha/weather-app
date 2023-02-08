@@ -2,8 +2,11 @@ import { UnitContext } from '../../../../context/unitContext'
 import { useContext } from 'react'
 import { IHour } from '../../../../types/city/forecast'
 
+export interface IProps {
+  newData: IHour
+}
 
-export const CardTitleValue = ({ newData }: any) => { // IHour
+export const CardTitleValue = ({ newData }: IProps) => {
     const {
       time, condition,
       temp_c, feelslike_c,

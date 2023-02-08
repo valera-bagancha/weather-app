@@ -1,36 +1,7 @@
 @import '../mixins.scss';
 @import '../functions.scss';
 
-// .app-main {
-//   flex-grow: 1;
-//   height: 100%;
-//   padding: 0 0 20px 0;
-//   background: linear-gradient(45deg, #2980B9, #6DD5FA, white);
-//   background-size: 400% 400%;
-//   animation: gradient 10s ease infinite;
-
-//   @include themify($themes) {
-//     background: themed('colorApp');
-//   }
-// }
-
-// @keyframes gradient {
-//   0% {
-//     background-position: 0 50%;
-//   }
-//   50% {
-//     background-position: 100% 50%;
-//   }
-//   100% {
-//     background-position: 0 50%;
-//   }
-// }
-
 .container-main-content {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   margin: 0 auto;
   max-width: 1200px;
   display: flex;
@@ -277,16 +248,13 @@
   padding: 50px 0;
 }
 
-// .intro {
-//   position: relative;
-//   background-size: cover;
-//   min-height: 100vh;
-//   overflow: hidden;
-// }
-
-// .video-box-main {
-//   position: relative;
-// }
+.video-box-main {
+  position: absolute;
+  width: 100%;
+  min-height: 90.3vh;
+  overflow: hidden;
+  z-index: -1;
+}
 
 .video-main {
   position: absolute;

@@ -1,10 +1,12 @@
+interface ICondition {
+  text: string; 
+  icon: string;
+  code: number;
+}
+
 export interface IForecastPreview {
   cloud: number;
-  condition: {
-    text: string; 
-    icon: string;
-    code: number;
-  };
+  condition: ICondition;
   feelslike_c: number;
   feelslike_f: number;
   gust_kph: number;
@@ -26,5 +28,5 @@ export interface IForecastPreview {
   wind_dir: string;
   wind_kph: number;
   wind_mph: number;
-  [key: string]: any
+  [key: string]: number | string | ICondition
 }
