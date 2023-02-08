@@ -26,4 +26,3 @@ export const forecastPreviews = (unit: boolean) =>
     apiKey: 'humidity',
   },
 ]
-// unit === 'fdsf' ?uv' : 'dfs

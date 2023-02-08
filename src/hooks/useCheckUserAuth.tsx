@@ -11,7 +11,8 @@ export const useCheckUserAuth = () => {
 
   const navigate = useNavigate()
   const location = useLocation()
-
+  console.log('freeRoutes', freeRoutes);
+  
   useEffect(() => {
     if (accessToken || freeRoutes.includes(location.pathname)) return
 

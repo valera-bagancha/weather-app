@@ -1,30 +1,6 @@
 @import '../mixins.scss';
 @import '../functions.scss';
 
-// .app-city {
-//   padding: 20px 0;
-//   background: linear-gradient(45deg, #2980B9, #6DD5FA, white);
-//   background-size: 400% 400%;
-//   animation: gradient 10s ease infinite;
-//   min-height: 100vh;
- 
-
-//   @include themify($themes) {
-//     background: themed('colorApp');
-//   }
-// }
-
-// @keyframes gradient {
-//   0% {
-//     background-position: 0 50%;
-//   }
-//   50% {
-//     background-position: 100% 50%;
-//   }
-//   100% {
-//     background-position: 0 50%;
-//   }
-// }
 
 .animation-bg {
   position: absolute;
@@ -415,22 +391,6 @@ label input[type="checkbox"] {
   display: flex;
   justify-content: center;
 }
-
-
-// .intro {
-//   position: relative;
-//   background-size: cover;
-//   min-height: 100vh;
-//   overflow: hidden;
-// }
-
-// .video-box-city {
-//   position: absolute;
-//   height: 300vh;
-//   width: 100%;
-//   height: 100%;
-//   overflow: hidden;
-// }
 
 .video-city {
   position: absolute;

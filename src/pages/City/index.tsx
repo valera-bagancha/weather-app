@@ -43,7 +43,6 @@ export const City = () => {
   const [currentDay, setCurrentDay] = useState<number | null | undefined>(null)
   const [isForecastLoading, setIsForecastLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-  // const favoritesCities = useSelector(favoriteCityDataSelector)
   const favoriteCitiesByUserId = useSelector(favoriteCitiesByUserIdSelector)
   const userId = useSelector(userIdSelector)
 
@@ -53,9 +52,6 @@ export const City = () => {
   const nextDays = forecast?.forecast.forecastday || []
 
   const cityName = forecast?.location?.name || ''
-  // const currentCityFavorite = favoritesCities.filter(
-  //   (id: ICurrentCityUser) => userId == id.userId
-  // )
 
   const isCurrentCityFavorite = favoriteCitiesByUserId.some(
     ({ city }: ICurrentCityUser) =>

@@ -49,7 +49,6 @@ export const SignIn = () => {
                 handleChange={handleChange}
                 values={values}
               />
-              {/* {getInputsList(inputs, values, errors, touched, handleChange)} */}
               <FooterAuth linkName={'Register'} linkRoute={ROUTES.REGISTER} />
             </Form>
           )}
@@ -58,5 +57,3 @@ export const SignIn = () => {
     </div>
   )
 }
-
-// errors={errors} touched={touched} handleChange={handleChange} values={values}

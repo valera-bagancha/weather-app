@@ -48,7 +48,6 @@ export const Register = () => {
           {({ errors, touched, values, handleChange }) => (
             <Form>
               <GetInputsList inputs={inputs} errors={errors} touched={touched} handleChange={handleChange} values={values}/>
-              {/* {getInputsList(inputs, values, errors, touched, handleChange)} */}
               <FooterAuth linkName={'Sign In'} linkRoute={ROUTES.SIGNIN} />
             </Form>
           )}
@@ -57,6 +56,3 @@ export const Register = () => {
     </div>
   )
 }
-
-
-// errors={errors} touched={touched} handleChange={handleChange} values={values}

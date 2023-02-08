@@ -82,19 +82,6 @@
   }
 }
 
-// .links-log-in a {
-//   color: rgba(0, 0, 0, 0.526);
-//   cursor: pointer;
-
-//   @include themify($themes) {
-//     color: themed('colorTextShadow');
-//   }
-// }
-
-// .links-log-in a:hover {
-//   text-decoration: underline;
-// }
-
 .box-button-auth {
   display: flex;
   justify-content: center;
@@ -120,13 +107,6 @@
     transition: all 0.2s ease;
   }
 }
-
-// .button-auth:hover {
-//   color: #2d2d2d;
-//   border: 1px solid #2d2d2d;
-//   background-color: white;
-//   transition: all 0.2s ease;
-// }
 
 .auth-error {
   color: red;

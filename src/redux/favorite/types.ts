@@ -1,4 +1,4 @@
-import { ISport, ISportEvents } from '../../types/city/sportEvents'
+import { ISport } from '../../types/city/sportEvents'
 import { IHistory } from '../../types/history'
 
 export enum ActionTypes {
@@ -12,18 +12,6 @@ interface ICity {
   userId: number 
   value: string
 }
-
-// interface ISport {
-//     userId: number 
-//     sportEvent: {
-//       country: string;
-//       match: string;
-//       region: string;
-//       stadium: string;
-//       start: string;
-//       tournament: string;
-//     }
-// }
 
 export interface IStateSport {
   cities: IHistory[]
